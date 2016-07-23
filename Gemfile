@@ -47,5 +47,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-# react-rails makes it easy to use React and JSX in your Ruby on Rails application.
+# React-rails makes it easy to use React and JSX in your Ruby on Rails application.
 gem 'react-rails'
+
+# Haml-rails provides Haml generators.
+gem 'haml-rails', '~> 0.9.0'
