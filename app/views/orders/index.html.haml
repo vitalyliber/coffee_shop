@@ -1,0 +1,23 @@
+%h1 Listing orders
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Cost price
+      %th
+      %th
+      %th
+
+  %tbody
+    - @orders.each do |order|
+      %tr
+        %td= order.title
+        %td= order.cost_price
+        %td= link_to 'Show', order
+        %td= link_to 'Edit', edit_order_path(order)
+        %td= link_to 'Destroy', order, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Order', new_order_path
