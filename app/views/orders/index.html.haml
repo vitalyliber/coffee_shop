@@ -21,3 +21,6 @@
 %br
 
 = link_to 'New Order', new_order_path
+
+#content
+= react_component('Order', { products: Product.all })
