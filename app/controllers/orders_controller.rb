@@ -24,14 +24,16 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
+    @order = Order.create(order_params)
+
+    params[:selected_products].each do |product|
+      @order.products << Product.find_by_id(product)
+    end
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
-        format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end

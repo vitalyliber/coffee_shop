@@ -30,10 +30,12 @@ class Order extends React.Component {
   constructor(props) {
     super(props);
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
-      cost: 0,
+      total: 0,
       products: this.props.products,
-      selected_products: []
+      selected_products: [],
+      url: '/orders'
     };
   }
 
@@ -63,6 +65,23 @@ class Order extends React.Component {
     this.setState({total: total_price});
   }
 
+  handleSubmit (products) {
+    products.preventDefault();
+    console.log(selected_products);
+    $.ajax({
+      url: this.state.url,
+      dataType: 'json',
+      type: 'POST',
+      data: {selected_products: selected_products, order: {cost_price: this.state.total} },
+      success: function(data) {
+        alert(`Совершена покупка на сумму: ${data.cost_price} руб.`)
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  }
+
   render() {
     return (
       <div>
@@ -78,6 +97,11 @@ class Order extends React.Component {
               />;
             }.bind(this))
           }
+        </div>
+        <div>
+          <form onSubmit={this.handleSubmit}>
+            <input type="submit" value="Post" disabled={this.state.total === 0 } />
+          </form>
         </div>
         <div>Total Cost: {this.state.total}</div>
       </div>
