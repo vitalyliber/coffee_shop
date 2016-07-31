@@ -26,16 +26,18 @@ class Product extends React.Component {
   }
 }
 
-var Order = React.createClass({
-  getInitialState: function() {
-    return {
+class Order extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+    this.state = {
       cost: 0,
       products: this.props.products,
       selected_products: []
     };
-  },
+  }
 
-  handleCommentSubmit: function(e) {
+  handleCommentSubmit (e) {
     if (e['state'] === true) {
       selected_products = update(this.state.selected_products, {$push: [e['id']] });
       this.setState({selected_products: selected_products });
@@ -54,15 +56,14 @@ var Order = React.createClass({
         return product.price;
       });
 
-    var total_price = products_for_consider.reduce(function(sum, current) {
+    var total_price = products_for_consider.reduce((sum, current) => {
       return sum + current;
     }, 0);
 
     this.setState({total: total_price});
-  },
+  }
 
-  render: function() {
-    var total = 0;
+  render() {
     return (
       <div>
         <div>
@@ -82,4 +83,4 @@ var Order = React.createClass({
       </div>
     );
   }
-});
+}
