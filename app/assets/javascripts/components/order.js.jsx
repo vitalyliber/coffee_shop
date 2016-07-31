@@ -17,9 +17,13 @@ class Product extends React.Component {
   render() {
     return (
       <div className={this.state.done}>
-        <input type="checkbox"
-               onChange={this.handleChange} />
-        <div> {this.props.title} </div>
+
+
+        <div className="product-data">
+          <input type="checkbox"
+                 onChange={this.handleChange} />
+          <div> {this.props.title} </div>
+        </div>
         <div> {this.props.price} </div>
       </div>
     );
@@ -100,7 +104,7 @@ class Order extends React.Component {
         </div>
         <div>
           <form onSubmit={this.handleSubmit}>
-            <input type="submit" value="Post" disabled={this.state.total === 0 } />
+            <input className="btn btn-primary" type="submit" value="Post" disabled={this.state.total === 0 } />
           </form>
         </div>
         <div>Total Cost: {this.state.total}</div>

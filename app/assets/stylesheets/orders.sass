@@ -4,9 +4,22 @@
 
 .product-item
   display: flex
+  justify-content: space-between
   margin-bottom: 10px
+  background-color: #30A9DE
+  padding: 10px 10px
+  color: white
+
+  input
+    align-self: center
+    margin-right: 10px
+
+  .product-data
+    display: flex
 
 .product-item-active
   @extend .product-item
-  background-color: #c6a870
-  color: white
+  background-color: #E53A40
+
+.btn-primary
+  @include button-variant(#fffefd, #30A9DE, #2b82ae)
