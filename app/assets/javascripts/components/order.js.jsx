@@ -1,19 +1,20 @@
 var update = React.addons.update;
 
 
-var Product = React.createClass({
-  handleChange: function(event) {
+class Product extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {done: 'product-item'};
+  }
+
+  handleChange (event) {
     this.setState({done: event.target.checked ? 'product-item-active' : 'product-item' });
     this.props.onCommentSubmit({id: this.props.id, state: event.target.checked});
-  },
+  }
 
-  getInitialState: function() {
-    return (
-      {done: 'product-item'}
-    );
-  },
-
-  render: function() {
+  render() {
     return (
       <div className={this.state.done}>
         <input type="checkbox"
@@ -23,7 +24,7 @@ var Product = React.createClass({
       </div>
     );
   }
-});
+}
 
 var Order = React.createClass({
   getInitialState: function() {
