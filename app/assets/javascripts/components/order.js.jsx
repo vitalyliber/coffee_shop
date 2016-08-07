@@ -6,22 +6,35 @@ class Product extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.state = {done: 'product-item'};
+    this.state = {
+      done: 'product-item',
+      checkbox_control: false
+    };
   }
 
   handleChange (event) {
-    this.setState({done: event.target.checked ? 'product-item-active' : 'product-item' });
-    this.props.onCommentSubmit({id: this.props.id, state: event.target.checked});
+    if (this.state.done === 'product-item') {
+      this.setState({done: 'product-item-active'});
+      this.props.onCommentSubmit({id: this.props.id, state: true});
+    } else {
+      this.setState({done: 'product-item'});
+      this.props.onCommentSubmit({id: this.props.id, state: false});
+    }
+
+  }
+
+  componentWillUpdate() {
+    if (this.props.checkbox_control === true) {
+      this.setState({done: 'product-item'});
+    }
   }
 
   render() {
     return (
-      <div className={this.state.done}>
-
-
+      <div className={this.state.done}
+           onClick={this.handleChange}
+      >
         <div className="product-data">
-          <input type="checkbox"
-                 onChange={this.handleChange} />
           <div> {this.props.title} </div>
         </div>
         <div> {this.props.price} </div>
@@ -39,7 +52,8 @@ class Order extends React.Component {
       total: 0,
       products: this.props.products,
       selected_products: [],
-      url: '/orders'
+      url: '/orders',
+      checkbox_control: false
     };
   }
 
@@ -71,19 +85,28 @@ class Order extends React.Component {
 
   handleSubmit (products) {
     products.preventDefault();
-    console.log(selected_products);
+    console.log(this.state.selected_products);
     $.ajax({
       url: this.state.url,
       dataType: 'json',
       type: 'POST',
-      data: {selected_products: selected_products, order: {cost_price: this.state.total} },
+      data: {selected_products: this.state.selected_products, order: {cost_price: this.state.total} },
       success: function(data) {
-        alert(`Совершена покупка на сумму: ${data.cost_price} руб.`)
+        this.setState({checkbox_control: true});
+        this.setState({selected_products: []});
+        this.setState({total: 0});
+        alert(`Совершена покупка на сумму: ${data.cost_price} руб.`);
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
+  }
+
+  componentDidUpdate() {
+    if (this.state.checkbox_control !== false) {
+      this.setState({checkbox_control: false});
+    }
   }
 
   render() {
@@ -96,6 +119,7 @@ class Order extends React.Component {
                               id={product.id}
                               title={product.title}
                               price={product.price}
+                              checkbox_control={this.state.checkbox_control}
                               onCommentSubmit={this.handleCommentSubmit}
 
               />;
