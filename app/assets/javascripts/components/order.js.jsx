@@ -34,10 +34,8 @@ class Product extends React.Component {
       <div className={this.state.done}
            onClick={this.handleChange}
       >
-        <div className="product-data">
-          <div> {this.props.title} </div>
-        </div>
-        <div> {this.props.price} </div>
+        <div> {this.props.title} </div>
+        <div> {this.props.price} руб.</div>
       </div>
     );
   }
@@ -112,7 +110,7 @@ class Order extends React.Component {
   render() {
     return (
       <div>
-        <div>
+        <div className="container">
           {
             this.state.products.map( function(product) {
               return <Product key={product.id}
@@ -126,12 +124,20 @@ class Order extends React.Component {
             }.bind(this))
           }
         </div>
-        <div>
-          <form onSubmit={this.handleSubmit}>
-            <input className="btn btn-primary" type="submit" value="Post" disabled={this.state.total === 0 } />
-          </form>
+        <div className="footer">
+          <div className="container">
+            <div className="elements">
+              <h2 className="cost">СУММА: {this.state.total} руб.</h2>
+              <div>
+                <form onSubmit={this.handleSubmit}>
+                  <input className="btn btn-primary" type="submit" value="КУПИТЬ" disabled={this.state.total === 0 } />
+                </form>
+              </div>
+            </div>
+          </div>
+
         </div>
-        <div>Total Cost: {this.state.total}</div>
+
       </div>
     );
   }

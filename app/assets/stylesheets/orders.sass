@@ -1,6 +1,17 @@
-// Place all the styles related to the Orders controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body
+  background-color: #EFDC05
+
+.navbar
+  border-radius: 0rem
+
+nav
+  background-color: #30A9DE
+  margin-bottom: 3rem
+
+  .navbar-logo
+    color: white
+    display: flex
+    justify-content: center
 
 .product-item
   display: flex
@@ -9,17 +20,32 @@
   background-color: #30A9DE
   padding: 10px 10px
   color: white
+  cursor: pointer
 
   input
     align-self: center
     margin-right: 10px
 
-  .product-data
-    display: flex
+  div
+    font-size: 1.5rem
 
 .product-item-active
   @extend .product-item
   background-color: #E53A40
 
 .btn-primary
-  @include button-variant(#fffefd, #30A9DE, #2b82ae)
+  @include button-variant(#fffefd, #e53a40, #ba3338)
+
+.footer
+  position: absolute
+  bottom: 0
+  width: 100%
+  padding: 30px 0px
+  background-color: #090707
+
+  .elements
+    display: flex
+    justify-content: space-between
+
+  .cost
+    color: white
