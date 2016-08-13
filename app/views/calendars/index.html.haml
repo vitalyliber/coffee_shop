@@ -1,0 +1,13 @@
+.container
+  = week_calendar events: Order.all do |date, orders|
+    - if orders.present?
+      .date-title= date.strftime("%e %B")
+    - orders.each do |order|
+      - if order.products.count > 1
+        %br
+      - order.products.each do |product|
+        .item
+          .title= product.title
+          .price= product.price
+      - if order.products.count > 1
+        .check= order.cost_price
