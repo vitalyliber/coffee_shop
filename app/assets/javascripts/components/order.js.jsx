@@ -35,7 +35,7 @@ class Product extends React.Component {
            onClick={this.handleChange}
       >
         <div> {this.props.title} </div>
-        <div> {this.props.price} руб.</div>
+        <div>{this.props.ml}ml / {this.props.price}₽</div>
       </div>
     );
   }
@@ -90,7 +90,12 @@ class Order extends React.Component {
       url: this.state.url,
       dataType: 'json',
       type: 'POST',
-      data: {selected_products: this.state.selected_products, order: {cost_price: this.state.total, point_id: this.props.point.id} },
+      data: {selected_products: this.state.selected_products,
+        order: {
+          cost_price:
+          this.state.total,
+          point_id: this.props.point.id}
+      },
       success: function(data) {
         this.setState({checkbox_control: true});
         this.setState({selected_products: []});
@@ -124,6 +129,7 @@ class Order extends React.Component {
                               id={product.id}
                               title={product.title}
                               price={product.price}
+                              ml={product.ml}
                               checkbox_control={this.state.checkbox_control}
                               onCommentSubmit={this.handleCommentSubmit}
 
