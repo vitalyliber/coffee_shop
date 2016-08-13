@@ -11,8 +11,8 @@
           .data
             - if order.products.count == 1
               .time= order.created_at.strftime("%H:%M")
-            .price= "#{product.price} руб."
+            .price= "#{product.price}₽"
       - if order.products.count > 1
         .check
           .time= order.created_at.strftime("%H:%M")
-          .cost= "#{order.cost_price} руб."
+          .cost= "#{order.cost_price}₽"
