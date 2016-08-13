@@ -8,6 +8,11 @@
       - order.products.each do |product|
         .item
           .title= product.title
-          .price= product.price
+          .data
+            - if order.products.count == 1
+              .time= order.created_at.strftime("%H:%M")
+            .price= "#{product.price} руб."
       - if order.products.count > 1
-        .check= order.cost_price
+        .check
+          .time= order.created_at.strftime("%H:%M")
+          .cost= "#{order.cost_price} руб."
