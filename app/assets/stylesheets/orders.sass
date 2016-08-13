@@ -1,8 +1,10 @@
+@import coffee_shop
+
 .product-item
   display: flex
   justify-content: space-between
   margin-bottom: 10px
-  background-color: #30A9DE
+  background-color: $sky_color
   padding: 10px 10px
   color: white
   cursor: pointer
@@ -16,10 +18,10 @@
 
 .product-item-active
   @extend .product-item
-  background-color: #E53A40
+  background-color: $bloody-color
 
 .btn-primary
-  @include button-variant(#fffefd, #e53a40, #ba3338)
+  @include button-variant(#fffefd, $ghost-bloody-color, $bloody-color)
 
 .footer
   position: absolute
