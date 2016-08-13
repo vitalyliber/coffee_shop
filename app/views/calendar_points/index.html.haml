@@ -1,0 +1,3 @@
+.container
+  - @calendar_points.each do |point|
+    .calendar-point= link_to point.title, calendars_path(point: point)

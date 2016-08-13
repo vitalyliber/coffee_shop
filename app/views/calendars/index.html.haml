@@ -1,5 +1,5 @@
 .container
-  = week_calendar events: Order.all do |date, orders|
+  = week_calendar events: @orders do |date, orders|
     - if orders.present?
       .date-title= date.strftime("%e %B")
     - orders.each do |order|
