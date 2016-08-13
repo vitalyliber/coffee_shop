@@ -198,6 +198,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    seed-fu (2.3.6)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
     sexp_processor (4.7.0)
     simple_calendar (2.1.5)
       rails (>= 3.0)
@@ -258,6 +261,7 @@ DEPENDENCIES
   remotipart!
   rolify
   sass-rails (~> 5.0)
+  seed-fu (~> 2.3)
   simple_calendar (~> 2.0)
   spring
   spring-watcher-listen (~> 2.0.0)
