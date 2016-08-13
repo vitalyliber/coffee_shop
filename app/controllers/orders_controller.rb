@@ -1,11 +1,13 @@
 class OrdersController < ApplicationController
   load_and_authorize_resource
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :has_point?
 
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @products = Product.all
+    @point = Point.find_by(id: params[:point])
   end
 
   # GET /orders/1
@@ -73,5 +75,11 @@ class OrdersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
       params.require(:order).permit(:title, :cost_price)
+    end
+
+    def has_point?
+      if params[:point].blank?
+        redirect_to root_path
+      end
     end
 end

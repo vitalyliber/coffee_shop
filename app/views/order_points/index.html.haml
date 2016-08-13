@@ -1,0 +1,3 @@
+.container
+  - @order_points.each do |point|
+    .order-point= link_to point.title, orders_path(point: point)
