@@ -90,7 +90,7 @@ class Order extends React.Component {
       url: this.state.url,
       dataType: 'json',
       type: 'POST',
-      data: {selected_products: this.state.selected_products, order: {cost_price: this.state.total} },
+      data: {selected_products: this.state.selected_products, order: {cost_price: this.state.total, point_id: this.props.point.id} },
       success: function(data) {
         this.setState({checkbox_control: true});
         this.setState({selected_products: []});
