@@ -46,12 +46,14 @@ class Order extends React.Component {
     super(props);
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleModel = this.handleModel.bind(this);
     this.state = {
       total: 0,
       products: this.props.products,
       selected_products: [],
       url: '/orders',
-      checkbox_control: false
+      checkbox_control: false,
+      modal: false
     };
   }
 
@@ -93,12 +95,17 @@ class Order extends React.Component {
         this.setState({checkbox_control: true});
         this.setState({selected_products: []});
         this.setState({total: 0});
-        alert(`Совершена покупка на сумму: ${data.cost_price} руб.`);
+        this.setState({modal: {open: true, text: `Покупка на сумму: ${data.cost_price} руб.`}});
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
+        this.setState({modal: {open: true, text: `Ошибка: ${this.props.url} ${status} ${err.toString()}`}});
       }.bind(this)
     });
+  }
+
+  handleModel (m) {
+    this.setState({modal: m.open, text: ''});
   }
 
   componentDidUpdate() {
@@ -138,6 +145,10 @@ class Order extends React.Component {
 
         </div>
 
+        <Modal
+          modal={this.state.modal}
+          handleModel={this.handleModel}
+        />
       </div>
     );
   }
