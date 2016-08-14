@@ -234,12 +234,7 @@ class Order extends React.Component {
         <div className="footer">
           <div className="container">
             <div className="elements">
-              <h2 className="cost">СУММА: {this.state.total} ₽</h2>
-              <div>
-                <form onSubmit={this.handleSubmit}>
-                  <input className="btn btn-primary" type="submit" value="КУПИТЬ" disabled={this.state.total === 0 } />
-                </form>
-              </div>
+              <button onClick={this.handleSubmit} disabled={this.state.total === 0 } className="cost btn btn-primary">{this.state.total} ₽</button>
             </div>
           </div>
 
