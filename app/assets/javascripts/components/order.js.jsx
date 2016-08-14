@@ -151,7 +151,9 @@ class Order extends React.Component {
       url: this.state.url,
       dataType: 'json',
       type: 'POST',
-      data: {selected_products: this.state.selected_products,
+      data: {
+        selected_products: this.state.selected_products,
+        repeat_products: JSON.stringify(this.state.repeat_products),
         order: {
           cost_price:
           this.state.total,

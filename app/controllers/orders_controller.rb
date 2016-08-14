@@ -28,9 +28,16 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.create(order_params)
+    repeat_products = JSON.parse(params[:repeat_products], symbolize_names: :true)
 
     params[:selected_products].each do |product|
-      @order.products << Product.find_by_id(product)
+      repeat_products.each do |repeat|
+        if repeat[:id] == product.to_i
+          repeat[:repeat].times do
+            @order.products << Product.find_by_id(product)
+          end
+        end
+      end
     end
 
     respond_to do |format|
