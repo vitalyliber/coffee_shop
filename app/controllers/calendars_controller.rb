@@ -7,6 +7,12 @@ class CalendarsController < ApplicationController
     @orders = @point.orders
   end
 
+  def show
+    @point = Point.find_by(id: params[:point])
+    @date = params[:id].to_date
+    @orders = @point.orders.where(created_at: @date.beginning_of_day..@date.to_date.end_of_day)
+  end
+
   private
 
   def has_access?

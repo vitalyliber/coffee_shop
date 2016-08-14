@@ -9,50 +9,68 @@
     color: white
 
     #{$a-tags}
-      color: $sky_color
+      color: white
       text-decoration: none
 
     #{$a-tags-hover}
-      color: $sky_color
+      color: white
 
   .calendar-dates
 
     .calendar-date
 
+      #{$a-tags}
+        color: $sky_color
+        text-decoration: none
+
+      #{$a-tags-hover}
+        color: $sky_color
+
       .date-title
         font-size: 1.5rem
         padding: 0.5rem
-        background-color: $bloody-color
+        background-color: $sky_color
         margin-bottom: 1rem
         text-align: center
         color: white
 
-      .item
-        display: flex
-        justify-content: space-between
-        margin-bottom: 10px
-        background-color: $sky_color
-        padding: 10px 10px
-        color: white
-        font-weight: bold
+      .wday-0
+        .date-title
+          background-color: white
+          color: $sky_color
+      .wday-6
+        @extend .wday-0
+      .today
+        .date-title
+          background-color: $bloody-color
+          color: white
 
-        .data
-          display: flex
+  .item
+    display: flex
+    justify-content: space-between
+    margin-bottom: 10px
+    background-color: $sky_color
+    padding: 10px 10px
+    color: white
+    font-weight: bold
 
-          .time
-            margin-right: 2rem
+    .data
+      display: flex
 
-      .check
+      .time
+        margin-right: 2rem
 
-        .time
-          margin-right: 2rem
+  .check
 
-      .check
-        display: flex
-        justify-content: center
-        margin-bottom: 10px
-        background-color: black
-        padding: 10px 10px
-        color: white
-        font-weight: bold
-        margin-bottom: 2rem
+    .time
+      margin-right: 2rem
+
+  .check
+    display: flex
+    justify-content: center
+    margin-bottom: 10px
+    background-color: black
+    padding: 10px 10px
+    color: white
+    font-weight: bold
+    margin-bottom: 2rem

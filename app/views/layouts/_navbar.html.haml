@@ -5,4 +5,9 @@
         %h1 Coffee Shop
     - if @point.present?
       .point-title
-        %h6= @point.title
+        - if params[:controller] == 'orders'
+          = link_to(calendars_path(point: @point)) do
+            %h6= @point.title
+        - else
+          = link_to(orders_path(point: @point)) do
+            %h6= @point.title

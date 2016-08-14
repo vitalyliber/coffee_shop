@@ -1,18 +1,4 @@
 .container
-  = week_calendar events: @orders do |date, orders|
-    - if orders.present?
+  = month_calendar do |date|
+    = link_to(calendar_path(point: @point, id: date)) do
       .date-title= date.strftime("%e %B")
-    - orders.each do |order|
-      - if order.products.count > 1
-        %br
-      - order.products.each do |product|
-        .item
-          .title= product.title
-          .data
-            - if order.products.count == 1
-              .time= order.created_at.strftime("%H:%M")
-            .price= "#{product.price}₽"
-      - if order.products.count > 1
-        .check
-          .time= order.created_at.strftime("%H:%M")
-          .cost= "#{order.cost_price}₽"
