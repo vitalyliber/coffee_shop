@@ -3,3 +3,6 @@
     .navbar-logo
       = link_to(root_path) do
         %h1 Coffee Shop
+    - if @point.present?
+      .point-title
+        %h6= @point.title

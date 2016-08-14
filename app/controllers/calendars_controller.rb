@@ -3,7 +3,8 @@ class CalendarsController < ApplicationController
   before_action :has_point?
 
   def index
-    @orders = Point.find_by(id: params[:point]).orders
+    @point = Point.find_by(id: params[:point])
+    @orders = @point.orders
   end
 
   private
