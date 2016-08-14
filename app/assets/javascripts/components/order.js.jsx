@@ -163,7 +163,7 @@ class Order extends React.Component {
         this.setState({checkbox_control: true});
         this.setState({selected_products: []});
         this.setState({total: 0});
-        this.setState({modal: {open: true, text: `Покупка на сумму: ${data.cost_price} руб.`}});
+        this.setState({modal: {open: true, text: `${data.cost_price} ₽`}});
       }.bind(this),
       error: function(xhr, status, err) {
         console.error(this.props.url, status, err.toString());
