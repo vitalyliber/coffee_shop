@@ -6,10 +6,13 @@ class Product extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.addRepeat = this.addRepeat.bind(this);
+    this.removeRepeat = this.removeRepeat.bind(this);
     this.state = {
       done: 'product-item',
       checkbox_control: false,
-      count_panel: false
+      count_panel: false,
+      repeat: 1
     };
   }
 
@@ -23,7 +26,22 @@ class Product extends React.Component {
       this.setState({count_panel: false});
       this.props.onProductSelection({id: this.props.id, state: false});
     }
+    this.props.onRepeat({repeat: 1, id: this.props.id});
+    this.setState({repeat: 1});
+  }
 
+  addRepeat () {
+    repeat = this.state.repeat + 1;
+    this.setState({repeat: repeat});
+    this.props.onRepeat({repeat: repeat, id: this.props.id});
+  }
+
+  removeRepeat () {
+    if (this.state.repeat !== 1) {
+      repeat = this.state.repeat - 1;
+      this.setState({repeat: repeat});
+      this.props.onRepeat({repeat: repeat, id: this.props.id});
+    }
   }
 
   componentWillUpdate() {
@@ -49,9 +67,9 @@ class Product extends React.Component {
         </div>
 
         <div className="product-count" style={product_styles.product_count}>
-          <div className="add">+</div>
-          <div className="counter">1</div>
-          <div className="remove">-</div>
+          <div className="remove" onClick={this.removeRepeat}>-</div>
+          <div className="counter">{this.state.repeat}</div>
+          <div className="add" onClick={this.addRepeat}>+</div>
         </div>
 
       </div>
@@ -66,14 +84,18 @@ class Order extends React.Component {
     this.handleProductSelection = this.handleProductSelection.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleModel = this.handleModel.bind(this);
+    this.handleRepeat = this.handleRepeat.bind(this);
+    this.handleProductsConsider = this.handleProductsConsider.bind(this);
     this.state = {
       total: 0,
       products: this.props.products,
       selected_products: [],
       url: '/orders',
       checkbox_control: false,
-      modal: false
+      modal: false,
+      repeat_products: []
     };
+    repeat_products = []
   }
 
   handleProductSelection (e) {
@@ -85,15 +107,28 @@ class Order extends React.Component {
       this.setState({selected_products: selected_products });
     }
 
+    this.handleProductsConsider()
+  }
+
+  handleProductsConsider () {
     products_for_consider = this.state.products.
-      filter( (product) => {
-        return selected_products.some( (selected_product) =>
-          selected_product == product.id
-        );
-      }).
-      map( (product) => {
+    filter( (product) => {
+      return selected_products.some( (selected_product) =>
+        selected_product == product.id
+      );
+    }).
+    map( (product) => {
+      repeat_product = repeat_products.filter( function (repeat_product) {
+        return repeat_product.id === product.id
+      })[0];
+
+      if (typeof repeat_product === 'object') {
+        return product.price * repeat_product.repeat;
+      } else {
         return product.price;
-      });
+      }
+
+    });
 
     var total_price = products_for_consider.reduce((sum, current) => {
       return sum + current;
@@ -128,6 +163,36 @@ class Order extends React.Component {
     });
   }
 
+  handleRepeat (r) {
+    repeat_product = this.state.repeat_products.filter( function (product) {
+        if (product.id === r.id) {
+          return true
+        } else {
+          return false
+        }
+      }
+    )[0];
+
+    if (repeat_product) {
+      repeat_products = this.state.repeat_products.map( function(product) {
+
+        if (product.id === r.id) {
+          return {id: product.id, repeat: r.repeat}
+        } else {
+          return {id: product.id, repeat: product.repeat}
+        }
+
+      });
+
+    } else {
+      repeat_products = update(this.state.repeat_products, {$push: [{id: r['id'], repeat: r.repeat}] });
+    }
+
+    this.setState({repeat_products: repeat_products});
+
+    this.handleProductsConsider()
+  }
+
   handleModel (m) {
     this.setState({modal: m.open, text: ''});
   }
@@ -151,6 +216,7 @@ class Order extends React.Component {
                               ml={product.ml}
                               checkbox_control={this.state.checkbox_control}
                               onProductSelection={this.handleProductSelection}
+                              onRepeat={this.handleRepeat}
 
               />;
             }.bind(this))
