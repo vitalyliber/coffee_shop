@@ -6,12 +6,19 @@
 
     - @orders.each do |order|
       - order.products.each do |product|
-        .item
-          .title= product.title
-          .data
-            - if order.products.count == 1
+        - if order.products.count == 1
+          .single-item
+            .title= product.title
+            .data
               .time= order.created_at.strftime("%H:%M")
-            .price= "#{product.price}₽"
+              .price= "#{product.price}₽"
+        - else
+          .item
+            .title= product.title
+            .data
+              .price= "#{product.price}₽"
+      - if order.products.count == 1
+        %br
       - if order.products.count > 1
         .check
           .time= order.created_at.strftime("%H:%M")
