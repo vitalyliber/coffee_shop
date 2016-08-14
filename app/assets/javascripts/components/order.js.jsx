@@ -8,6 +8,7 @@ class Product extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.addRepeat = this.addRepeat.bind(this);
     this.removeRepeat = this.removeRepeat.bind(this);
+    this.handleOnOffCountPanel = this.handleOnOffCountPanel.bind(this);
     this.state = {
       done: 'product-item',
       checkbox_control: false,
@@ -26,6 +27,10 @@ class Product extends React.Component {
       this.setState({count_panel: false});
       this.props.onProductSelection({id: this.props.id, state: false});
     }
+    this.handleOnOffCountPanel()
+  }
+
+  handleOnOffCountPanel () {
     this.props.onRepeat({repeat: 1, id: this.props.id});
     this.setState({repeat: 1});
   }
@@ -47,6 +52,8 @@ class Product extends React.Component {
   componentWillUpdate() {
     if (this.props.checkbox_control === true) {
       this.setState({done: 'product-item'});
+      this.handleOnOffCountPanel();
+      this.setState({count_panel: false});
     }
   }
 
