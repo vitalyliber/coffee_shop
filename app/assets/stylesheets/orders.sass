@@ -1,27 +1,56 @@
 @import coffee_shop
 
-.product-item
-  display: flex
-  justify-content: space-between
-  margin-bottom: 10px
-  background-color: $sky_color
-  padding: 10px 10px
-  color: white
-  cursor: pointer
+.product
+  .product-item
+    display: flex
+    justify-content: space-between
+    background-color: $sky_color
+    padding: 10px 10px
+    color: white
+    cursor: pointer
+    margin-bottom: 10px
 
-  input
-    align-self: center
-    margin-right: 10px
+    input
+      align-self: center
+      margin-right: 10px
 
-  div
-    font-size: 1.5rem
+    div
+      font-size: 1.5rem
 
-.product-item:last-child
+  .product-count
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: black
+    color: white
+    margin-bottom: 10px
+    padding: 10px 10px
+
+    .counter
+      align-items: center
+      justify-content: center
+      display: flex
+      width: 3rem
+      height: 3rem
+      background-color: white
+      margin: 0 0.5rem
+      font-size: 1.5rem
+      color: black
+
+    .add
+      font-size: 2rem
+      @extend .counter
+
+    .remove
+      @extend .add
+
+  .product-item-active
+    @extend .product-item
+    margin-bottom: 0
+    background-color: $bloody-color
+
+.product:last-child
   margin-bottom: 140px
-
-.product-item-active
-  @extend .product-item
-  background-color: $bloody-color
 
 .btn-primary
   @include button-variant(#fffefd, $ghost-bloody-color, $bloody-color)

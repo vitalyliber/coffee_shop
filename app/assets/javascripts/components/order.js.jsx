@@ -8,16 +8,19 @@ class Product extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.state = {
       done: 'product-item',
-      checkbox_control: false
+      checkbox_control: false,
+      count_panel: false
     };
   }
 
   handleChange (event) {
     if (this.state.done === 'product-item') {
       this.setState({done: 'product-item-active'});
+      this.setState({count_panel: true});
       this.props.onProductSelection({id: this.props.id, state: true});
     } else {
       this.setState({done: 'product-item'});
+      this.setState({count_panel: false});
       this.props.onProductSelection({id: this.props.id, state: false});
     }
 
@@ -30,13 +33,29 @@ class Product extends React.Component {
   }
 
   render() {
+    const product_styles = {
+      product_count: {
+        display: this.state.count_panel ? null : 'none'
+      }
+    };
     return (
-      <div className={this.state.done}
-           onClick={this.handleChange}
-      >
-        <div> {this.props.title} </div>
-        <div>{this.props.ml}ml / {this.props.price}₽</div>
+      <div className="product">
+
+        <div className={this.state.done}
+             onClick={this.handleChange}
+        >
+          <div> {this.props.title} </div>
+          <div>{this.props.ml}ml / {this.props.price}₽</div>
+        </div>
+
+        <div className="product-count" style={product_styles.product_count}>
+          <div className="add">+</div>
+          <div className="counter">1</div>
+          <div className="remove">-</div>
+        </div>
+
       </div>
+
     );
   }
 }
