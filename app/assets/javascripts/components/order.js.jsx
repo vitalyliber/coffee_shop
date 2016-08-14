@@ -15,10 +15,10 @@ class Product extends React.Component {
   handleChange (event) {
     if (this.state.done === 'product-item') {
       this.setState({done: 'product-item-active'});
-      this.props.onCommentSubmit({id: this.props.id, state: true});
+      this.props.onProductSelection({id: this.props.id, state: true});
     } else {
       this.setState({done: 'product-item'});
-      this.props.onCommentSubmit({id: this.props.id, state: false});
+      this.props.onProductSelection({id: this.props.id, state: false});
     }
 
   }
@@ -44,7 +44,7 @@ class Product extends React.Component {
 class Order extends React.Component {
   constructor(props) {
     super(props);
-    this.handleCommentSubmit = this.handleCommentSubmit.bind(this);
+    this.handleProductSelection = this.handleProductSelection.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleModel = this.handleModel.bind(this);
     this.state = {
@@ -57,7 +57,7 @@ class Order extends React.Component {
     };
   }
 
-  handleCommentSubmit (e) {
+  handleProductSelection (e) {
     if (e['state'] === true) {
       selected_products = update(this.state.selected_products, {$push: [e['id']] });
       this.setState({selected_products: selected_products });
@@ -131,7 +131,7 @@ class Order extends React.Component {
                               price={product.price}
                               ml={product.ml}
                               checkbox_control={this.state.checkbox_control}
-                              onCommentSubmit={this.handleCommentSubmit}
+                              onProductSelection={this.handleProductSelection}
 
               />;
             }.bind(this))
