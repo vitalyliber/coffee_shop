@@ -9,7 +9,7 @@ set :repo_url, 'git@github.com:vitalyliber/coffee_shop.git'
 set :rvm_ruby_version, '2.3.1@coffee-shop'
 
 #add log file to shared folder
-set :linked_dirs, %w{log}
+set :linked_dirs, %w{log tmp}
 
 namespace :deploy do
 
