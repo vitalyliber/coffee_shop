@@ -11,8 +11,6 @@ set :rvm_ruby_version, '2.3.1@coffee-shop'
 #add log file to shared folder
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
-set :puma_conf, "#{shared_path}/config/puma.rb"
-
 namespace :deploy do
   before 'check:linked_files', 'puma:config'
   before 'check:linked_files', 'puma:nginx_config'
