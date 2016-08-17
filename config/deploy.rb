@@ -11,7 +11,7 @@ set :rvm_ruby_version, '2.3.1@coffee-shop'
 #add log file to shared folder
 set :linked_dirs, %w{log tmp}
 
-set :puma_conf, "home/publisher/coffee_shop/shared/puma.rb"
+set :puma_conf, "/home/publisher/coffee_shop/shared/puma.rb"
 
 
 namespace :deploy do
