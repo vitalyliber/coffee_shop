@@ -1,8 +1,8 @@
-role :app, %w{publisher@ec2-52-59-78-65.eu-central-1.compute.amazonaws.com}
-role :web, %w{publisher@ec2-52-59-78-65.eu-central-1.compute.amazonaws.com}
-role :db,  %w{publisher@ec2-52-59-78-65.eu-central-1.compute.amazonaws.com}
+role :app, %w{publisher@coffee-shop.toel.ru}
+role :web, %w{publisher@coffee-shop.toel.ru}
+role :db,  %w{publisher@coffee-shop.toel.ru}
 
-server 'ec2-52-59-78-65.eu-central-1.compute.amazonaws.com', user: 'publisher', roles: %w{web app}, primary: true
+server '', user: 'publisher', roles: %w{web app}, primary: true
 set :rails_env, 'production'
 set :deploy_to, "/home/publisher/coffee_shop"
 set :branch, ENV['BRANCH'] || 'master'
