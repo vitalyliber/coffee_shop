@@ -13,7 +13,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 namespace :deploy do
   before 'check:linked_files', 'puma:config'
-  after 'puma:smart_restart', 'nginx:restart'
+  after 'puma:smart_restart'
 end
 
 # Default branch is :master
