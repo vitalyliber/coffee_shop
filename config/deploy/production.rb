@@ -2,7 +2,7 @@ role :app, %w{publisher@coffee-shop.toel.ru}
 role :web, %w{publisher@coffee-shop.toel.ru}
 role :db,  %w{publisher@coffee-shop.toel.ru}
 
-server '', user: 'publisher', roles: %w{web app}, primary: true
+server 'coffee-shop.toel.ru', user: 'publisher', roles: %w{web app}, primary: true
 set :rails_env, 'production'
 set :deploy_to, "/home/publisher/coffee_shop"
 set :branch, ENV['BRANCH'] || 'master'
