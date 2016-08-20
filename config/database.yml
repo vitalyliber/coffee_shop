@@ -21,5 +21,12 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: coffee_shop_production
+  username: coffee_shop_production
+  password: Hh83LnxJ
+  host: localhost
+  port: 5432
+  pool: 1
+  timeout: 5000
