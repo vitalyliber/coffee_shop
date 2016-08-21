@@ -33,6 +33,7 @@ gem 'pg'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'awesome_print', '~> 1.7'
 end
 
 group :development do
@@ -51,6 +52,7 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano3-puma'
   gem 'capistrano-rails-tail-log'
+  gem 'capistrano-rails-console'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

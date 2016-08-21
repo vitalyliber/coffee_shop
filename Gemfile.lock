@@ -50,6 +50,7 @@ GEM
     arel (7.1.0)
     autoprefixer-rails (6.3.7)
       execjs
+    awesome_print (1.7.0)
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -74,6 +75,8 @@ GEM
     capistrano-rails (1.1.7)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-rails-console (1.0.2)
+      capistrano (>= 3.1.0, < 4.0.0)
     capistrano-rails-tail-log (0.1.0)
       capistrano (>= 3.0)
       capistrano-rails
@@ -275,12 +278,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print (~> 1.7)
   bootstrap (~> 4.0.0.alpha3.1)
   byebug
   cancancan
   capistrano (~> 3.1)
   capistrano-bundler
   capistrano-rails (~> 1.1)
+  capistrano-rails-console
   capistrano-rails-tail-log
   capistrano-rvm
   capistrano3-puma
