@@ -7,6 +7,8 @@ set :rails_env, 'production'
 set :deploy_to, "/home/publisher/coffee_shop"
 set :branch, ENV['BRANCH'] || 'production'
 
+set :rvm_ruby_version, '2.3.1@coffee-shop'
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.

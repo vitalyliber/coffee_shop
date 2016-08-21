@@ -6,3 +6,5 @@ server 'coffee-shop-staging.toel.ru', user: 'publisher', roles: %w{web app}, pri
 set :rails_env, 'staging'
 set :deploy_to, "/home/staging/coffee_shop"
 set :branch, ENV['BRANCH'] || 'master'
+
+set :rvm_ruby_version, '2.3.1@coffee-shop-staging'
