@@ -30,3 +30,14 @@ production:
   port: 5432
   pool: 1
   timeout: 5000
+
+staging:
+  adapter: postgresql
+  encoding: unicode
+  database: coffee_shop_staging
+  username: coffee_shop_staging
+  password: iHtn6K1N
+  host: localhost
+  port: 5432
+  pool: 1
+  timeout: 5000
