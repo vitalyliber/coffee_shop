@@ -10,7 +10,7 @@
           .single-item
             .title= product.title
             .data
-              .time= order.created_at.strftime("%H:%M")
+              .time= order.created_at
               .price= "#{product.price}₽"
         - else
           .item
@@ -21,7 +21,7 @@
         %br
       - if order.products.count > 1
         .check
-          .time= order.created_at.strftime("%H:%M")
+          .time= order.created_at
           .cost= "#{order.cost_price}₽"
 
     .calendar-heading
