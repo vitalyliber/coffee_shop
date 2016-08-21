@@ -6,52 +6,52 @@
     padding: 0 0 2rem 0
     text-align: center
     font-size: 2rem
-    color: white
+    color: $white
 
     #{$a-tags}
-      color: white
+      color: $white
       text-decoration: none
 
     #{$a-tags-hover}
-      color: white
+      color: $white
 
   .calendar-dates
 
     .calendar-date
 
       #{$a-tags}
-        color: $sky_color
+        color: $sky-color
         text-decoration: none
 
       #{$a-tags-hover}
-        color: $sky_color
+        color: $sky-color
 
       .date-title
         font-size: 1.5rem
         padding: 0.5rem
-        background-color: $sky_color
+        background-color: $sky-color
         margin-bottom: 1rem
         text-align: center
-        color: white
+        color: $white
 
       .wday-0
         .date-title
-          background-color: white
-          color: $sky_color
+          background-color: $white
+          color: $sky-color
       .wday-6
         @extend .wday-0
       .today
         .date-title
           background-color: $bloody-color
-          color: white
+          color: $white
 
   .item
     display: flex
     justify-content: space-between
     margin-bottom: 10px
-    background-color: $sky_color
+    background-color: $sky-color
     padding: 10px 10px
-    color: white
+    color: $white
     font-weight: bold
 
     .data
@@ -62,8 +62,8 @@
       
   .single-item
     @extend .item
-    background-color: white
-    color: $sky_color
+    background-color: $white
+    color: $sky-color
 
   .check
 
@@ -74,8 +74,8 @@
     display: flex
     justify-content: center
     margin-bottom: 10px
-    background-color: black
+    background-color: $black
     padding: 10px 10px
-    color: white
+    color: $white
     font-weight: bold
     margin-bottom: 2rem

@@ -2,22 +2,22 @@
 
 .point-title
   text-align: center
-  color: white
+  color: $white
 
   #{$a-tags}
-    color: white
+    color: $white
     text-decoration: none
 
   #{$a-tags-hover}
-    color: white
+    color: $white
 
 .product
   .product-item
     display: flex
     justify-content: space-between
-    background-color: $sky_color
+    background-color: $sky-color
     padding: 10px 10px
-    color: white
+    color: $white
     cursor: pointer
     margin-bottom: 10px
 
@@ -28,12 +28,15 @@
     div
       font-size: 1.5rem
 
+  .product-item:hover
+    background-color: $ghost-sky-color
+
   .product-count
     display: flex
     justify-content: center
     align-items: center
-    background-color: black
-    color: white
+    background-color: $black
+    color: $white
     margin-bottom: 10px
     padding: 10px 10px
 
@@ -43,10 +46,10 @@
       display: flex
       width: 3rem
       height: 3rem
-      background-color: white
+      background-color: $white
       margin: 0 0.5rem
       font-size: 1.5rem
-      color: black
+      color: $black
 
     .add
       font-size: 2rem
@@ -61,24 +64,27 @@
     margin-bottom: 0
     background-color: $bloody-color
 
+  .product-item-active:hover
+    background-color: $ghost-bloody-color
+
 .product:last-child
   margin-bottom: 140px
 
 .btn-primary
-  @include button-variant(#fffefd, $ghost-bloody-color, $bloody-color)
+  @include button-variant($white, $ghost-bloody-color, $bloody-color)
 
 .footer
   position: fixed
   bottom: 0
   width: 100%
   padding: 30px 0px
-  background-color: #090707
+  background-color: $black
 
   .elements
     display: flex
     justify-content: center
 
   .cost
-    color: white
+    color: $white
     width: 10rem
     font-size: 2rem
