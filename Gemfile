@@ -78,3 +78,5 @@ gem 'devise'
 gem 'cancancan'
 gem 'rolify'
 gem 'seed-fu', '~> 2.3'
+
+gem 'momentjs-rails'
