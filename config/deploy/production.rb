@@ -5,8 +5,7 @@ role :db,  %w{publisher@coffee-shop.toel.ru}
 server 'coffee-shop.toel.ru', user: 'publisher', roles: %w{web app}, primary: true
 set :rails_env, 'production'
 set :deploy_to, "/home/publisher/coffee_shop"
-set :linked_files, %w{db/production.sqlite3}
-set :branch, ENV['BRANCH'] || 'master'
+set :branch, ENV['BRANCH'] || 'production'
 
 # server-based syntax
 # ======================
