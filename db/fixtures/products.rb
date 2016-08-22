@@ -20,5 +20,6 @@ Product.seed(:id,
           { :id => 19, :title => "Пепси",   :ml => 600,   :price => 60 },
           { :id => 20, :title => "Вода",   :ml => 500,   :price => 50 },
           { :id => 21, :title => "Чай",   :ml => 200,   :price => 40 },
-          { :id => 22, :title => "Чай",   :ml => 400,   :price => 60 }
+          { :id => 22, :title => "Чай",   :ml => 400,   :price => 60 },
+          { :id => 23, :title => "Сироп",   :ml => 20,   :price => 20 }
 )
