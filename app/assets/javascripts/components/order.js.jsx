@@ -149,7 +149,7 @@ class Order extends React.Component {
     console.log(this.state.selected_products);
     $.ajax({
       url: this.state.url,
-      async: false,
+      timeout: 20000,
       dataType: 'json',
       type: 'POST',
       data: {
