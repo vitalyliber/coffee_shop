@@ -1,15 +1,36 @@
 class TillProduct extends React.Component {
+  constructor(props) {
+    super(props);
+    this.selectHandler = this.selectHandler.bind(this);
+  }
+
+  selectHandler() {
+    if (this.props.product.active === true) {
+      store.dispatch({
+        type: 'DESELECT_PRODUCT',
+        product_id: this.props.product.id
+      })
+    } else {
+      store.dispatch({
+        type: 'SELECT_PRODUCT',
+        product_id: this.props.product.id
+      })
+    }
+
+  }
+
   render() {
     const product_styles = {
       product_count: {
-        display: 'none'
+        display: this.props.product.active ? null : 'none'
       }
     };
     return (
 
       <div className="product">
 
-        <div className="product-item"
+        <div className={this.props.product.active ? 'product-item-active' : 'product-item' }
+             onClick={this.selectHandler}
         >
           <div>{this.props.product.title}</div>
           <div>{this.props.product.ml}ml / {this.props.product.price}₽</div>
