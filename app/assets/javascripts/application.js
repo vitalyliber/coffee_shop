@@ -16,7 +16,10 @@
 //= require bootstrap-sprockets
 //= require moment
 //= require turbolinks
+//= require redux
+//= require normalizr-json
 //= require react
 //= require react_ujs
+//= require react-redux
 //= require components
 //= require_tree .
