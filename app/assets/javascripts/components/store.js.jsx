@@ -8,7 +8,6 @@ const initialProductState = {
 var productReducer = function(state = initialProductState, action) {
   switch(action.type) {
   case 'SELECT_PRODUCT':
-    console.log(state);
     newState = update(state, {
       [action.product_id]: {active: {$set: true} }
     });

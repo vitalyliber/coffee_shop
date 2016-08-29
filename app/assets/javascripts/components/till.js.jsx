@@ -9,11 +9,22 @@ class Till extends React.Component {
       type: 'FILL_PRODUCT',
       products: normalize_products
     });
+  }
 
-    console.log(
-      store.getState('products'),
-      this.props.products
-    );
+  componentWillMount() {
+    common_price = 0;
+  }
+
+  componentWillReceiveProps () {
+    products = store.getState('products').productState;
+
+    common_price = 0;
+
+    $.each( products, function( key, value ) {
+      if (value.active === true) {
+        common_price += value.price;
+      }
+    });
   }
 
   render() {
@@ -32,7 +43,7 @@ class Till extends React.Component {
         <div className="footer">
           <div className="container">
             <div className="elements">
-              <button className="cost btn btn-primary">140 ₽</button>
+              <button className="cost btn btn-primary">{common_price} ₽</button>
             </div>
           </div>
 
