@@ -55,15 +55,25 @@ class Till extends React.Component {
   }
 }
 
+document.addEventListener("turbolinks:load", function() {
+  if ($("#root").length) {
 
+    render(
+      <Provider store={store}>
+        <Till />
+      </Provider>,
+      document.getElementById('root')
+    );
 
-$(function() {
-  render(
-    <Provider store={store}>
-      <Till />
-    </Provider>,
-    document.getElementById('root')
-  );
+  }
+});
+
+document.addEventListener("turbolinks:before-cache", function() {
+  if ($("#root").length) {
+
+    ReactDOM.unmountComponentAtNode(document.getElementById('root'));
+
+  }
 });
 
 const mapStateToProps = (state) => {
