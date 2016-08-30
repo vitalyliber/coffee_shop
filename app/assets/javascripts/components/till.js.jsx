@@ -2,6 +2,11 @@ products_from_string = JSON.parse("[{\"id\":2,\"active\":null,\"title\":\"Аме
 
 class Till extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.buyHandler = this.buyHandler.bind(this);
+  }
+
   componentDidMount() {
     normalize_products = normalize(products_from_string, arrayOfProducts).entities.product;
 
@@ -29,6 +34,22 @@ class Till extends React.Component {
     });
   }
 
+  buyHandler () {
+    products = store.getState('products').productState;
+
+    let bought_products = {products: {}};
+
+    $.each( products, function( key, value ) {
+      if (value.active === true) {
+        bought_products = update(bought_products, {
+          products: {$merge: {[value.id]: value.repeat} }
+        });
+      }
+    });
+
+    console.log( JSON.stringify(bought_products) )
+  }
+
   render() {
     return (
       <div>
@@ -45,7 +66,7 @@ class Till extends React.Component {
         <div className="footer">
           <div className="container">
             <div className="elements">
-              <button className="cost btn btn-primary">{common_price} ₽</button>
+              <button onClick={this.buyHandler} className="cost btn btn-primary">{common_price} ₽</button>
             </div>
           </div>
 
