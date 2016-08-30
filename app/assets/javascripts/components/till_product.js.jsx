@@ -2,6 +2,8 @@ class TillProduct extends React.Component {
   constructor(props) {
     super(props);
     this.selectHandler = this.selectHandler.bind(this);
+    this.addHandler = this.addHandler.bind(this);
+    this.removeHandler = this.removeHandler.bind(this);
   }
 
   selectHandler() {
@@ -17,6 +19,20 @@ class TillProduct extends React.Component {
       })
     }
 
+  }
+
+  addHandler() {
+    store.dispatch({
+      type: 'ADD_REPEAT',
+      product_id: this.props.product.id
+    })
+  }
+
+  removeHandler () {
+    store.dispatch({
+      type: 'REMOVE_REPEAT',
+      product_id: this.props.product.id
+    })
   }
 
   render() {
@@ -37,9 +53,9 @@ class TillProduct extends React.Component {
         </div>
 
         <div className="product-count" style={product_styles.product_count}>
-          <div className="remove">-</div>
-          <div className="counter">1</div>
-          <div className="add">+</div>
+          <div className="remove" onClick={this.removeHandler}>-</div>
+          <div className="counter">{this.props.product.repeat}</div>
+          <div className="add" onClick={this.addHandler}>+</div>
         </div>
 
       </div>

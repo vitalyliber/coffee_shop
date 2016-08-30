@@ -22,7 +22,9 @@ class Till extends React.Component {
 
     $.each( products, function( key, value ) {
       if (value.active === true) {
-        common_price += value.price;
+        let price = value.price;
+        let repeat = value.repeat;
+        common_price = common_price + price * repeat;
       }
     });
   }
