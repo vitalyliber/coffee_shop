@@ -12,9 +12,18 @@ var productReducer = function(state = initialProductState, action) {
     newState = update(state, {
       [action.product_id]: {active: {$set: true} }
     });
-    newState = update(newState, {
-      [action.product_id]: {$merge: {repeat: 1} }
+    return newState;
+
+  case 'NORMALIZE_PRODUCT':
+    $.each( state, function( key, value ) {
+      newState = update(newState, {
+        [key]: {active: {$set: false} }
+      });
+      newState = update(newState, {
+        [key]: {$merge: {repeat: 1} }
+      });
     });
+
     return newState;
 
   case 'DESELECT_PRODUCT':

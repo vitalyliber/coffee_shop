@@ -14,6 +14,10 @@ class Till extends React.Component {
       type: 'FILL_PRODUCT',
       products: normalize_products
     });
+
+    store.dispatch({
+      type: 'NORMALIZE_PRODUCT',
+    });
   }
 
   componentWillMount() {
