@@ -18,6 +18,7 @@
 //= require turbolinks
 //= require redux
 //= require normalizr-json
+//= require axios
 //= require react
 //= require react_ujs
 //= require react-redux
