@@ -39,13 +39,13 @@ class Till extends React.Component {
   }
 
   buyHandler () {
-    products = store.getState('products').productState;
+    state_products = store.getState('products').productState;
 
-    let bought_products = {products: []};
+    let products = {products: []};
 
-    $.each( products, function( key, value ) {
+    $.each( state_products, function( key, value ) {
       if (value.active === true) {
-        bought_products.products.push({id: value.id, repeat: value.repeat})
+        products.products.push({id: value.id, repeat: value.repeat})
       }
     });
 
@@ -53,7 +53,15 @@ class Till extends React.Component {
       type: 'NORMALIZE_PRODUCT',
     });
 
-    console.log( JSON.stringify(bought_products) )
+    console.log(products);
+
+    axios.post('/api/products/sale', {products})
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+    });
   }
 
   render() {
