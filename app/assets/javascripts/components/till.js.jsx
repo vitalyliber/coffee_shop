@@ -41,14 +41,16 @@ class Till extends React.Component {
   buyHandler () {
     products = store.getState('products').productState;
 
-    let bought_products = {products: {}};
+    let bought_products = {products: []};
 
     $.each( products, function( key, value ) {
       if (value.active === true) {
-        bought_products = update(bought_products, {
-          products: {$merge: {[value.id]: value.repeat} }
-        });
+        bought_products.products.push({id: value.id, repeat: value.repeat})
       }
+    });
+
+    store.dispatch({
+      type: 'NORMALIZE_PRODUCT',
     });
 
     console.log( JSON.stringify(bought_products) )
@@ -70,7 +72,9 @@ class Till extends React.Component {
         <div className="footer">
           <div className="container">
             <div className="elements">
-              <button onClick={this.buyHandler} className="cost btn btn-primary">{common_price} ₽</button>
+              <button onClick={this.buyHandler}
+                      disabled={common_price === 0 }
+                      className="cost btn btn-primary">{common_price} ₽</button>
             </div>
           </div>
 
