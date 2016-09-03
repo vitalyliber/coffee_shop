@@ -1,7 +1,7 @@
 .container
   .simple-calendar
     .calendar-heading
-      = link_to(_back_url) do
+      = link_to( calendars_path(point: @point) ) do
         СТАТИСТИКА
 
     - @orders.each do |order|
