@@ -22,7 +22,7 @@
       - if order.products.count > 1
         .check
           .time= order.created_at
-          .cost= "#{order.cost_price}₽"
+          .cost= "#{order.products.sum(:price)}₽"
 
     .calendar-heading
       = "#{number_with_delimiter(sum_orders( @orders ), :delimiter => '.')} ₽"
