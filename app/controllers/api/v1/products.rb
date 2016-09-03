@@ -8,6 +8,7 @@ module API
         authenticate!
       end
       resource :products do
+
         desc 'Return list of products',
              is_array: true,
              http_codes: [
@@ -19,6 +20,7 @@ module API
 
           present :products, products, with: Entities::Product
         end
+
       end
     end
   end

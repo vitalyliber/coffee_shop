@@ -6,6 +6,7 @@ class Till extends React.Component {
   }
 
   componentDidMount() {
+    point = $('#point').val();
 
     axios.get('/api/v1/products')
       .then(function (response) {
@@ -62,9 +63,9 @@ class Till extends React.Component {
       type: 'NORMALIZE_PRODUCT',
     });
 
-    console.log(products);
+    products = JSON.stringify(products);
 
-    axios.post('/api/products/sale', {products})
+    axios.post('/api/v1/orders', {products, point})
       .then(function (response) {
         console.log(response);
       })

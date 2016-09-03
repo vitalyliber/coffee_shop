@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   resourcify
-  validates :products, :cost_price, :point_id, presence: :true
+  validates :products, :point_id, presence: :true
 
   has_many :order_lists
   has_many :products, through: :order_lists
