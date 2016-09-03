@@ -20,7 +20,7 @@ var productReducer = function(state = initialProductState, action) {
         [key]: {active: {$set: false} }
       });
       newState = update(newState, {
-        [key]: {$merge: {repeat: 1} }
+        [key]: {repeat: {$set: 1} }
       });
     });
 
