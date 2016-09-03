@@ -25,4 +25,4 @@
           .cost= "#{order.cost_price}₽"
 
     .calendar-heading
-      = "#{number_with_delimiter(@orders.sum(:cost_price), :delimiter => '.')} ₽"
+      = "#{number_with_delimiter(sum_orders( @orders ), :delimiter => '.')} ₽"
