@@ -3,6 +3,7 @@ module API
     class Products < Grape::API
       format :json
       helpers API::AuthHelper
+      include API::Defaults
 
       before do
         authenticate!
