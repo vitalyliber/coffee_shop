@@ -23,19 +23,23 @@ module API
 
         post do
 
-          @order = Order.new( point_id: params[:point] )
+          order = Order.new( point_id: params[:point] )
 
           JSON.parse( params[:products], symbolize_names: true ).dig(:products).each do |product|
 
             product.dig( :repeat ).times do
-              @order.products << Product.find( product.dig(:id) )
+              order.products << Product.find( product.dig(:id) )
             end
 
           end
 
-          @order.save
+          order.save
 
-          status :created
+          point = Point.find_by(id: params[:point])
+          date = Time.now
+          orders = point.orders.all_day(date)
+
+          sum_orders orders
         end
 
       end

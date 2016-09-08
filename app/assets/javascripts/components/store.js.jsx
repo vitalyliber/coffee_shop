@@ -60,8 +60,23 @@ var productReducer = function(state = initialProductState, action) {
   }
 };
 
+const initialSumOrdersState = 0;
+
+var sumOrdersReducer = function(state = initialSumOrdersState, action) {
+  switch(action.type) {
+
+    case 'UPDATE_SUM_ORDERS':
+      newState = action.sum_products;
+      return newState;
+
+    default:
+      return state;
+  }
+};
+
 const reducers = Redux.combineReducers({
-  productState: productReducer
+  productState: productReducer,
+  sumOrdersState: sumOrdersReducer
 });
 
 // Create a store by passing in the reducer

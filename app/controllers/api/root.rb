@@ -3,6 +3,16 @@ module API
     prefix    'api'
     format    :json
 
+    helpers do
+      def sum_orders orders
+        sum = 0
+        orders.each do |order|
+          sum += order.products.sum(:price)
+        end
+        sum
+      end
+    end
+
     namespace 'v1'do
       mount API::V1::Root
     end

@@ -77,14 +77,20 @@
   position: fixed
   bottom: 0
   width: 100%
-  padding: 30px 0px
+  padding: 1rem 0rem
   background-color: $black
+  cursor: pointer
 
   .elements
     display: flex
     justify-content: center
-
-  .cost
     color: $white
-    width: 10rem
     font-size: 2rem
+
+.footer-red
+  @extend .footer
+  background-color: $bloody-color
+  cursor: default
+
+  .elements
+    @extend .elements

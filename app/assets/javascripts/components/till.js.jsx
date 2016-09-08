@@ -8,6 +8,11 @@ class Till extends React.Component {
   componentDidMount() {
     point = $('#point').val();
 
+    store.dispatch({
+      type: 'UPDATE_SUM_ORDERS',
+      sum_products: $('#sum_orders').val()
+    });
+
     axios.get('/api/v1/products')
       .then(function (response) {
 
@@ -67,6 +72,10 @@ class Till extends React.Component {
 
     axios.post('/api/v1/orders', {products, point})
       .then(function (response) {
+        store.dispatch({
+          type: 'UPDATE_SUM_ORDERS',
+          sum_products: response.data
+        });
         console.log(response);
       })
       .catch(function (error) {
@@ -87,15 +96,21 @@ class Till extends React.Component {
             }.bind(this))
           }
         </div>
-        <div className="footer">
+
+        <div className="footer" style={ {display: common_price === 0 ? null : 'none'} }>
           <div className="container">
             <div className="elements">
-              <button onClick={this.buyHandler}
-                      disabled={common_price === 0 }
-                      className="cost btn btn-primary">{common_price} ₽</button>
+              {this.props.sum_orders} ₽
             </div>
           </div>
+        </div>
 
+        <div className="footer-red" style={ {display: common_price === 0 ? 'none' : null} }>
+          <div className="container">
+            <div className="elements" onClick={this.buyHandler}>
+              {common_price} ₽
+            </div>
+          </div>
         </div>
 
       </div>
@@ -127,7 +142,8 @@ document.addEventListener("turbolinks:before-cache", function() {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.productState
+    products: state.productState,
+    sum_orders: state.sumOrdersState
   };
 };
 
