@@ -1,7 +1,7 @@
 .container
   .simple-calendar
     .calendar-heading
-      = link_to(_back_url) do
+      = link_to( calendars_path(point: @point) ) do
         СТАТИСТИКА
 
     - @orders.each do |order|
@@ -22,7 +22,7 @@
       - if order.products.count > 1
         .check
           .time= order.created_at
-          .cost= "#{order.cost_price}₽"
+          .cost= "#{order.products.sum(:price)}₽"
 
     .calendar-heading
-      = "#{number_with_delimiter(@orders.sum(:cost_price), :delimiter => '.')} ₽"
+      = "#{number_with_delimiter(sum_orders( @orders ), :delimiter => '.')} ₽"

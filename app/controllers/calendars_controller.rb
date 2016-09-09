@@ -10,7 +10,7 @@ class CalendarsController < ApplicationController
   def show
     @point = Point.find_by(id: params[:point])
     @date = params[:id].to_date
-    @orders = @point.orders.where(created_at: @date.beginning_of_day..@date.to_date.end_of_day)
+    @orders = @point.orders.all_day(@date)
   end
 
   private
