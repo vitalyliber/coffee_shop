@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
 
   def index
     @products = Product.all
-    @point = Point.find_by(id: params[:point])
+    @point = Point.find_by(id: params[:point_id])
 
     date = Time.now
     orders = @point.orders.all_day(date)
@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
   private
 
   def has_point?
-    if params[:point].blank?
+    if params[:point_id].blank?
       redirect_to root_path
     end
   end

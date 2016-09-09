@@ -3,11 +3,14 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   authenticate :user do
-    root 'homes#index'
-    resources :orders
+    root 'points#index'
+
     resources :calendars
     resources :calendar_points
     resources :order_points
+    resources :points do
+      resources :orders
+    end
   end
 
   mount GrapeSwaggerRails::Engine => '/api/docs'

@@ -1,0 +1,7 @@
+.container
+  .points
+    - @admin_points.each do |point|
+      = link_to point.title, point_path(point), class: 'item-admin'
+
+    - @barman_points.each do |point|
+      = link_to point.title, point_path(point), class: 'item-barman'

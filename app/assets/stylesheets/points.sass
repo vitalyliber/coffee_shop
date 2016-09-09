@@ -1,0 +1,24 @@
+@import coffee_shop
+
+.points
+
+  .item-admin
+    @extend .common-item
+    background-color: $sky-color
+
+  .item-admin:hover
+    background-color: $ghost-sky-color
+
+  .item-barman
+    @extend .item-admin
+    background-color: $bloody-color
+
+  .item-barman:hover
+    background-color: $ghost-bloody-color
+
+  #{$a-tags}
+    color: $white
+    text-decoration: none
+
+  #{$a-tags-hover}
+    color: $white

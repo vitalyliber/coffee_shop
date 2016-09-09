@@ -9,5 +9,5 @@
           = link_to(calendar_path(id: Time.now.strftime('%Y-%m-%d'), point: @point)) do
             %h6= @point.title
         - else
-          = link_to(orders_path(point: @point)) do
+          = link_to(point_orders_path(@point)) do
             %h6= @point.title
