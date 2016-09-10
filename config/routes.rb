@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :order_points
     resources :points do
       resources :orders
+      resources :products
     end
   end
 

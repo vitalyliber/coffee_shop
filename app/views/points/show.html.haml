@@ -1,3 +1,4 @@
 .container
-  .order-point
-    = link_to 'START SALES', point_orders_path(@point), class: 'item'
+  .points
+    = link_to 'START SALES', point_orders_path(@point), class: 'item-sales'
+    = link_to 'PRODUCTS', point_products_path(@point), class: 'item-products'
