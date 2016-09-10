@@ -6,6 +6,7 @@ module API
         expose :title
         expose :price
         expose :ml
+        expose :meter
       end
     end
   end
