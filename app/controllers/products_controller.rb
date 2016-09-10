@@ -1,10 +1,10 @@
 class ProductsController < ApplicationController
   before_action :find_point
-  before_action :find_product, only: [:update, :edit]
+  before_action :find_product, only: [:update, :edit, :destroy]
   include ProductsHelper
 
   def index
-    @products = ProductList.find_by(point: @point).products
+    @products = ProductList.find_by(point: @point).products.order(title: :asc)
   end
 
   def edit
@@ -28,8 +28,17 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product.product_list = @point.product_list
 
     if @product.save
+      redirect_to point_products_path(@point)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @product.destroy
       redirect_to point_products_path(@point)
     else
       render :edit
