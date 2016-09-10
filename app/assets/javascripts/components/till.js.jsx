@@ -88,7 +88,14 @@ class Till extends React.Component {
       <div>
         <div className="container">
           {
-            Object.keys(this.props.products).map(function (key) {
+            Object.keys(this.props.products).sort(function (a, b) {
+              var nameA=this.props.products[a].title.toLowerCase(), nameB=this.props.products[b].title.toLowerCase();
+              if (nameA < nameB)
+                return -1;
+              if (nameA > nameB)
+                return 1;
+              return 0;
+            }.bind(this)).map(function (key) {
               return <TillProduct
                 key={key}
                 product={this.props.products[key]}
