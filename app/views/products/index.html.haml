@@ -1,4 +1,6 @@
 .container
+  .add-product
+    = link_to 'ADD PRODUCT', new_point_product_path(@point), class: 'item'
   .products
     - @products.each do |product|
       = link_to(edit_point_product_path(@point, product), class: 'item') do
