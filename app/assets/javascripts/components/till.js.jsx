@@ -13,7 +13,7 @@ class Till extends React.Component {
       sum_products: $('#sum_orders').val()
     });
 
-    axios.get('/api/v1/products')
+    axios.get('/api/v1/products?point=' + point)
       .then(function (response) {
 
         let products_from_api = response.data.products;
