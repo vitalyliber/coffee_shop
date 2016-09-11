@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   def day_sales
     @day_sales = @point.day_sales.find_by(status: :opened, user: current_user)
 
-    @orders = @point.orders.current_sales(@day_sales.start).order(created_at: :desc)
+    @orders = @day_sales.orders.current_sales(@day_sales.start).order(created_at: :desc)
   end
 
   private

@@ -50,11 +50,14 @@ module API
           end
 
           order.raw_code = raw_code.to_json
-          order.save
 
           point = Point.find_by(id: params[:point])
-          sales_day = point.day_sales.find_by(status: :opened, user: current_user)
-          orders = point.orders.current_sales(sales_day.start)
+          day_sale = point.day_sales.find_by(status: :opened, user: current_user)
+
+          order.day_sale = day_sale
+          order.save
+
+          orders = point.orders.current_sales(day_sale.start)
 
           sum_orders orders
         end

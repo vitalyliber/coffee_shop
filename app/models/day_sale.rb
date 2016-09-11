@@ -6,6 +6,7 @@ class DaySale < ApplicationRecord
 
   belongs_to :point
   belongs_to :user
+  has_many :orders
 
   private
 

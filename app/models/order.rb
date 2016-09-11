@@ -6,6 +6,7 @@ class Order < ApplicationRecord
   scope :current_sales, ->(date) { where(created_at: date..Time.now) }
 
   belongs_to :point
+  belongs_to :day_sale
 
   def start_time
     self.created_at
