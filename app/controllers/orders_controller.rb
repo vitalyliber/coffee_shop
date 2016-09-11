@@ -3,9 +3,6 @@ class OrdersController < ApplicationController
   before_action :find_point
   include OrdersHelper
 
-  def till
-  end
-
   def day_sales
     @day_sales = @point.day_sales.find_by(status: :opened, user: current_user)
 
