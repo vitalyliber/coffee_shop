@@ -5,6 +5,8 @@ class PointsController < ApplicationController
   before_action :has_day_sale?, only: :till
 
   def index
+    redirect_to point_path( Point.with_role(:admin, current_user).try(:first) )
+
     @admin_points = Point.with_role(:admin, current_user)
     @barman_points = Point.with_role(:barman, current_user)
   end
