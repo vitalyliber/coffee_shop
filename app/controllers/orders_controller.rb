@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
-  include CalendarsHelper
   load_and_authorize_resource
   before_action :has_point?, only: :index
   before_action :find_point
   before_action :has_day_sale?, only: :index
+  include API::ApiHelpers
 
   def index
     @products = @point.product_list.products

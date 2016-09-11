@@ -3,6 +3,7 @@ module API
     class Orders < Grape::API
       format :json
       helpers API::AuthHelper
+      helpers API::ApiHelpers
       include API::Defaults
 
       before do
@@ -25,14 +26,29 @@ module API
 
           order = Order.new( point_id: params[:point] )
 
-          JSON.parse( params[:products], symbolize_names: true ).dig(:products).each do |product|
+          raw_code = {
+              products: [],
 
-            product.dig( :repeat ).times do
-              order.products << Product.find( product.dig(:id) )
-            end
+              price: 0
+          }
 
+          JSON.parse( params[:products], symbolize_names: true ).dig(:products).each do |p|
+            product = Product.find( p.dig(:id) )
+              raw_code[:products] << {
+                id: product.id,
+                title: product.title,
+                price: product.price,
+                meter: product.meter,
+                ml: product.ml,
+                repeat: p.dig(:repeat)
+              }
           end
 
+          raw_code.dig(:products).each do |product|
+            raw_code[:price] += product[:price]
+          end
+
+          order.raw_code = raw_code.to_json
           order.save
 
           point = Point.find_by(id: params[:point])
