@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :calendar_points
     resources :order_points
     resources :points do
+      get :till
       resources :orders do
         collection do
           get :day_sales, as: :sales

@@ -6,7 +6,7 @@
         %div Day sale is opened
         %div= "#{distance_of_time_in_words(Time.now - @day_sale.start)} ago"
 
-      = link_to 'START SALES', point_orders_path(@point), class: 'item-sales'
+      = link_to 'START SALES', point_till_path(@point), class: 'item-sales'
     - else
       - if @last_day_sale.present?
         .info-block

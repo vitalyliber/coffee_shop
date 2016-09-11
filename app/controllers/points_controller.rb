@@ -1,5 +1,8 @@
 class PointsController < ApplicationController
-  before_action :find_point, only: [:show, :start_sales, :end_sales]
+  include OrdersHelper
+
+  before_action :find_point, only: [:show, :start_sales, :end_sales, :till]
+  before_action :has_day_sale?, only: :till
 
   def index
     @admin_points = Point.with_role(:admin, current_user)
@@ -32,9 +35,23 @@ class PointsController < ApplicationController
     end
   end
 
+  def till
+    @products = @point.product_list.products
+
+    @day_sales = @point.day_sales.find_by(status: :opened, user: current_user)
+    orders = @point.orders.current_sales(@day_sales.start)
+    @sum_orders = sum_orders orders
+  end
+
   private
 
   def find_point
-    @point = Point.find_by(id: params[:id])
+    @point = Point.find_by(id: params[:id] || params[:point_id])
+  end
+
+  def has_day_sale?
+    if @point.day_sales.find_by(status: :opened, user: current_user).blank?
+      redirect_to root_path
+    end
   end
 end
