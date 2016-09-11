@@ -7,6 +7,7 @@ class Till extends React.Component {
 
   componentDidMount() {
     point = $('#point').val();
+    statistics_path = $('#statistics').val();
 
     store.dispatch({
       type: 'UPDATE_SUM_ORDERS',
@@ -37,6 +38,7 @@ class Till extends React.Component {
 
   componentWillMount() {
     common_price = 0;
+    statistics_path = null;
   }
 
   componentWillReceiveProps () {
@@ -106,9 +108,9 @@ class Till extends React.Component {
 
         <div className="footer" style={ {display: common_price === 0 ? null : 'none'} }>
           <div className="container">
-            <div className="elements">
+            <a href={statistics_path} className="elements">
               {this.props.sum_orders} ₽
-            </div>
+            </a>
           </div>
         </div>
 

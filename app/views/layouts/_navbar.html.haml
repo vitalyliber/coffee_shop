@@ -6,9 +6,5 @@
     - if @point.present?
       .point-title
         - if opened_day_sale?
-          - if params[:action] == 'index'
-            = link_to(sales_point_orders_path(@point)) do
-              %h6= @point.title
-          - else
-            = link_to(point_orders_path(@point)) do
-              %h6= @point.title
+          = link_to( point_path(@point) ) do
+            %h6= @point.title
