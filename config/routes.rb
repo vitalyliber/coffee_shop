@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     resources :calendar_points
     resources :order_points
     resources :points do
-      resources :orders
+      resources :orders do
+        collection do
+          get :day_sales, as: :sales
+        end
+      end
       resources :products
       member do
         get :start_sales, as: :sale

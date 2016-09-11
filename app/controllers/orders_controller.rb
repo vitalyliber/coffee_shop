@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :has_point?, only: :index
   before_action :find_point
   before_action :has_day_sale?, only: :index
-  include API::ApiHelpers
+  include OrdersHelper
 
   def index
     @products = @point.product_list.products
@@ -11,6 +11,11 @@ class OrdersController < ApplicationController
     @sales_day = @point.day_sales.find_by(status: :opened, user: current_user)
     orders = @point.orders.current_sales(@sales_day.start)
     @sum_orders = sum_orders orders
+  end
+
+  def day_sales
+    @orders = @point.orders.order(created_at: :desc)
+    @sum = sum_orders @orders
   end
 
   private

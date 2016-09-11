@@ -1,0 +1,31 @@
+.container
+  .simple-calendar
+    .calendar-heading
+      = link_to( '' ) do
+        СТАТИСТИКА
+
+    - @orders.each do |order|
+      - raw_code = JSON.parse( order.raw_code, symbolize_names: true )
+      - raw_code.dig(:products).each do |product|
+        - if raw_code.dig(:products).count == 1 and product.dig(:repeat) == 1
+          .single-item
+            .title= product.dig(:title)
+            .data
+              .time= order.created_at
+              .price= "#{product.dig(:price)}₽"
+          %br
+
+        - else
+          - product.dig(:repeat).times do
+            .item
+              .title= product.dig(:title)
+              .data
+                .price= "#{product.dig(:price)}₽"
+
+      - if raw_code.dig(:products).count > 1 or raw_code.dig(:products, 0, :repeat) > 1
+        .check
+          .time= order.created_at
+          .cost= "#{raw_code.dig(:price)}₽"
+
+    .calendar-heading
+      = "#{number_with_delimiter(sum_orders(@orders), :delimiter => '.')} ₽"

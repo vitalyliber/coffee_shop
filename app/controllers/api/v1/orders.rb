@@ -3,7 +3,7 @@ module API
     class Orders < Grape::API
       format :json
       helpers API::AuthHelper
-      helpers API::ApiHelpers
+      helpers OrdersHelper
       include API::Defaults
 
       before do
@@ -28,24 +28,25 @@ module API
 
           raw_code = {
               products: [],
-
               price: 0
           }
 
           JSON.parse( params[:products], symbolize_names: true ).dig(:products).each do |p|
             product = Product.find( p.dig(:id) )
-              raw_code[:products] << {
-                id: product.id,
-                title: product.title,
-                price: product.price,
-                meter: product.meter,
-                ml: product.ml,
-                repeat: p.dig(:repeat)
-              }
+            raw_code[:products] << {
+              id: product.id,
+              title: product.title,
+              price: product.price,
+              meter: product.meter,
+              ml: product.ml,
+              repeat: p.dig(:repeat)
+            }
           end
 
           raw_code.dig(:products).each do |product|
-            raw_code[:price] += product[:price]
+            product.dig(:repeat).times do
+              raw_code[:price] += product[:price]
+            end
           end
 
           order.raw_code = raw_code.to_json
