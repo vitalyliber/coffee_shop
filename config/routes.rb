@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :products
       member do
         get :start_sales, as: :sale
+        delete :end_sales, as: :close
       end
     end
   end

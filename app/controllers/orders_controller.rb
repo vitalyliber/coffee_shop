@@ -8,14 +8,15 @@ class OrdersController < ApplicationController
   def index
     @products = @point.product_list.products
 
-    @sales_day = @point.day_sales.find_by(status: :opened, user: current_user)
-    orders = @point.orders.current_sales(@sales_day.start)
+    @day_sales = @point.day_sales.find_by(status: :opened, user: current_user)
+    orders = @point.orders.current_sales(@day_sales.start)
     @sum_orders = sum_orders orders
   end
 
   def day_sales
-    @orders = @point.orders.order(created_at: :desc)
-    @sum = sum_orders @orders
+    @day_sales = @point.day_sales.find_by(status: :opened, user: current_user)
+
+    @orders = @point.orders.current_sales(@day_sales.start).order(created_at: :desc)
   end
 
   private

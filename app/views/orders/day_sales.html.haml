@@ -1,8 +1,8 @@
 .container
   .simple-calendar
     .calendar-heading
-      = link_to( '' ) do
-        СТАТИСТИКА
+      = link_to( close_point_path(@point), method: :delete, data: {confirm: "Are you sure?"} ) do
+        CLOSE DAY SALES
 
     - @orders.each do |order|
       - raw_code = JSON.parse( order.raw_code, symbolize_names: true )

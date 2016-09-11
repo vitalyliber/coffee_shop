@@ -1,5 +1,5 @@
 class PointsController < ApplicationController
-  before_action :find_point, only: [:show, :start_sales]
+  before_action :find_point, only: [:show, :start_sales, :end_sales]
 
   def index
     @admin_points = Point.with_role(:admin, current_user)
@@ -10,7 +10,7 @@ class PointsController < ApplicationController
     @day_sale = DaySale.find_by(status: :opened, user: current_user, point: @point)
 
     if @day_sale.blank?
-      @last_day_sale= DaySale.where(status: :closed, user: current_user, point: @point).last
+      @last_day_sale = DaySale.where(status: :closed, user: current_user, point: @point).last
     end
   end
 
@@ -21,6 +21,14 @@ class PointsController < ApplicationController
       redirect_to point_path(@point)
     else
       render 'show'
+    end
+  end
+
+  def end_sales
+    day_sales = @point.day_sales.find_by(status: :opened, user: current_user)
+
+    if day_sales.update(status: :closed, end: Time.now)
+      redirect_to point_path(@point)
     end
   end
 
