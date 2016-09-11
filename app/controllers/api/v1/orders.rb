@@ -36,8 +36,8 @@ module API
           order.save
 
           point = Point.find_by(id: params[:point])
-          date = Time.now
-          orders = point.orders.all_day(date)
+          sales_day = point.day_sales.find_by(status: :opened, user: current_user)
+          orders = point.orders.current_sales(sales_day.start)
 
           sum_orders orders
         end

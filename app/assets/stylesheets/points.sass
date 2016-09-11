@@ -1,6 +1,12 @@
 @import coffee_shop
 
 .points
+  #{$a-tags}
+    color: $white
+    text-decoration: none
+
+  #{$a-tags-hover}
+    color: $white
 
   .item-admin
     @extend .common-item
@@ -23,16 +29,23 @@
   .item-products:hover
     background-color: $ghost-sky-color
 
-  .item-sales
+  .item-day-sales
     @extend .common-item
     background-color: $bloody-color
 
-  .item-sales:hover
+  .item-day-sales:hover
     background-color: $ghost-bloody-color
 
-  #{$a-tags}
-    color: $white
+  .item-sales
+    @extend .common-item
+    background-color: $white
     text-decoration: none
 
-  #{$a-tags-hover}
-    color: $white
+    &:hover
+      background-color: $dirty-white
+
+    &:active
+      color: $sky-color
+
+    &:visited
+      color: $sky-color

@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     resources :points do
       resources :orders
       resources :products
+      member do
+        get :start_sales, as: :sale
+      end
     end
   end
 
