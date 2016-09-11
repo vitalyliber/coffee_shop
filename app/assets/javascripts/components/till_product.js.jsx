@@ -49,7 +49,7 @@ class TillProduct extends React.Component {
              onClick={this.selectHandler}
         >
           <div>{this.props.product.title}</div>
-          <div>{this.props.product.ml}{this.props.product.meter == 'ml' ? 'ml' : ' piece'} / {this.props.product.price}₽</div>
+          <div>{this.props.product.ml} {this.props.product.meter} / {this.props.product.price}₽</div>
         </div>
 
         <div className="product-count" style={product_styles.product_count}>

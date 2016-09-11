@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to point_products_path(@point)
     else
-      render :edit
+      render :new
     end
   end
 
