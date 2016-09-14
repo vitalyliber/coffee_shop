@@ -58,6 +58,10 @@ $dirty-white: #f9f9f9
   text-decoration: none
   color: $sky-color
 
+  &:link
+    color: $sky-color
+    text-decoration: none
+
   &:hover
     background-color: $dirty-white
     color: $sky-color
@@ -65,15 +69,21 @@ $dirty-white: #f9f9f9
 
   &:active
     color: $sky-color
+    text-decoration: none
 
   &:visited
     color: $sky-color
+    text-decoration: none
 
 .item-middle
   @extend .common-item
   background-color: $sky-color
   text-decoration: none
   color: $white
+
+  &:link
+    color: $white
+    text-decoration: none
 
   &:hover
     background-color: $ghost-sky-color
@@ -82,15 +92,21 @@ $dirty-white: #f9f9f9
 
   &:active
     color: $white
+    text-decoration: none
 
   &:visited
     color: $white
+    text-decoration: none
 
 .item-heavy
   @extend .common-item
   background-color: $bloody-color
   text-decoration: none
   color: $white
+
+  &:link
+    color: $white
+    text-decoration: none
 
   &:hover
     background-color: $ghost-bloody-color
@@ -99,9 +115,11 @@ $dirty-white: #f9f9f9
 
   &:active
     color: $white
+    text-decoration: none
 
   &:visited
     color: $white
+    text-decoration: none
 
 .justify-between
   display: flex
