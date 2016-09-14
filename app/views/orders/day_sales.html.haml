@@ -11,7 +11,7 @@
           .single-item
             .title= product.dig(:title)
             .data
-              .time= order.created_at
+              .time{ val: order.created_at }
               .price= "#{product.dig(:price)}₽"
           %br
 
@@ -24,7 +24,7 @@
 
       - if raw_code.dig(:products).count > 1 or raw_code.dig(:products, 0, :repeat) > 1
         .check
-          .time= order.created_at
+          .time{ val: order.created_at }
           .cost= "#{raw_code.dig(:price)}₽"
 
     .calendar-heading

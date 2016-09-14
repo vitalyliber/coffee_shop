@@ -4,8 +4,8 @@
 
   - @day_sales.each do |day_sale|
     = link_to(sales_point_orders_path( @point, day_sale: day_sale.id )) do
-      .time= day_sale.start
-      .time= day_sale.end
+      .time{ val: day_sale.start }
+      .time{ val: day_sale.end }
       .price= sum_orders day_sale.orders
       .user= day_sale.user.email
       %br
