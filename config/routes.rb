@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     root 'points#index'
 
     resources :calendars
-    resources :calendar_points
     resources :order_points
     resources :points do
       get :till
