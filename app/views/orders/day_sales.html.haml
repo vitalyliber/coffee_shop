@@ -1,14 +1,12 @@
 .container
-  .simple-calendar
-    .calendar-heading
-      = link_to( close_point_path(@point), method: :delete, data: {confirm: "Are you sure?"} ) do
-        CLOSE DAY SALES
+  .day-sale
+    .info-block CURRENT DAY SALES
 
     - @orders.each do |order|
       - raw_code = JSON.parse( order.raw_code, symbolize_names: true )
       - raw_code.dig(:products).each do |product|
         - if raw_code.dig(:products).count == 1 and product.dig(:repeat) == 1
-          .single-item
+          .single-item.justify-between
             .title= product.dig(:title)
             .data
               .time{ val: order.created_at }
@@ -17,7 +15,7 @@
 
         - else
           - product.dig(:repeat).times do
-            .item
+            .multiply-item.justify-between
               .title= product.dig(:title)
               .data
                 .price= "#{product.dig(:price)}₽"
@@ -27,5 +25,5 @@
           .time{ val: order.created_at }
           .cost= "#{raw_code.dig(:price)}₽"
 
-    .calendar-heading
+    .info-block
       = "#{number_with_delimiter(sum_orders(@orders), :delimiter => '.')} ₽"
