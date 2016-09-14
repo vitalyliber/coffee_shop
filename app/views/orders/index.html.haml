@@ -2,10 +2,14 @@
   .info-block
     STATISTICS
 
-  - @day_sales.each do |day_sale|
-    = link_to(sales_point_orders_path( @point, day_sale: day_sale.id )) do
-      .time{ val: day_sale.start }
-      .time{ val: day_sale.end }
-      .price= sum_orders day_sale.orders
-      .user= day_sale.user.email
-      %br
+  .cards
+    - @day_sales.each do |day_sale|
+      .col-xs-12.col-sm-6.col-md-4.col-lg-3
+        .coffee-card
+          = link_to(sales_point_orders_path( @point, day_sale: day_sale.id )) do
+            .datetime{ val: day_sale.start }
+            .datetime{ val: day_sale.end }
+            %div= distance_of_time_in_words(day_sale.end - day_sale.start)
+            .price= sum_orders day_sale.orders
+            .user= day_sale.user.email
+            %br

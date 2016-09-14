@@ -1,6 +1,6 @@
 .container
   .day-sale
-    .info-block CURRENT DAY SALES
+    .info-block DAY SALES
 
     - @orders.each do |order|
       - raw_code = JSON.parse( order.raw_code, symbolize_names: true )
