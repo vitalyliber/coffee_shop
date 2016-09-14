@@ -1,7 +1,6 @@
 .container
-  .points
-    - @admin_points.each do |point|
-      = link_to point.title, point_path(point), class: 'item-admin'
+  - @admin_points.each do |point|
+    = link_to point.title, point_path(point), class: 'item-light'
 
-    - @barman_points.each do |point|
-      = link_to point.title, point_path(point), class: 'item-barman'
+  - @barman_points.each do |point|
+    = link_to point.title, point_path(point), class: 'item-middle'

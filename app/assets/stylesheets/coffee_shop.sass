@@ -44,3 +44,54 @@ $dirty-white: #f9f9f9
   text-align: center
   font-size: 2rem
   color: $white
+
+.item-light
+  @extend .common-item
+  background-color: $white
+  text-decoration: none
+  color: $sky-color
+
+  &:hover
+    background-color: $dirty-white
+    color: $sky-color
+    text-decoration: none
+
+  &:active
+    color: $sky-color
+
+  &:visited
+    color: $sky-color
+
+.item-middle
+  @extend .common-item
+  background-color: $sky-color
+  text-decoration: none
+  color: $white
+
+  &:hover
+    background-color: $ghost-sky-color
+    color: $white
+    text-decoration: none
+
+  &:active
+    color: $white
+
+  &:visited
+    color: $white
+
+.item-heavy
+  @extend .common-item
+  background-color: $bloody-color
+  text-decoration: none
+  color: $white
+
+  &:hover
+    background-color: $ghost-bloody-color
+    color: $white
+    text-decoration: none
+
+  &:active
+    color: $white
+
+  &:visited
+    color: $white
