@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160911151428) do
+ActiveRecord::Schema.define(version: 20160915154804) do
 
   create_table "day_sales", force: :cascade do |t|
     t.datetime "start"
@@ -34,8 +34,9 @@ ActiveRecord::Schema.define(version: 20160911151428) do
   create_table "points", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "current",     default: false
   end
 
   create_table "product_lists", force: :cascade do |t|

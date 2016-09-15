@@ -1,7 +1,7 @@
 %nav.navbar.navbar-light.navbar-static-top
   .container
     .navbar-logo
-      = link_to(root_path) do
+      = link_to(point_path( Point.with_role(:admin, current_user).find_by(current: true) )) do
         %h1 Coffee Shop
     - if @point.present?
       .point-title

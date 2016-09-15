@@ -5,13 +5,21 @@ class PointsController < ApplicationController
   before_action :has_day_sale?, only: :till
 
   def index
-    redirect_to point_path( Point.with_role(:admin, current_user).try(:first) )
+    if params[:set].blank?
+      redirect_to point_path( Point.with_role(:admin, current_user).find_by(current: true) )
+    end
 
     @admin_points = Point.with_role(:admin, current_user)
     @barman_points = Point.with_role(:barman, current_user)
   end
 
   def show
+    if params[:set].present?
+      points = Point.with_role(:admin, current_user)
+      points.where(current: true).where.not(id: @point.id).each {|p| p.update(current: false)}
+      @point.update(current: true) unless @point.current
+    end
+
     @day_sale = DaySale.find_by(status: :opened, user: current_user, point: @point)
 
     if @day_sale.blank?
