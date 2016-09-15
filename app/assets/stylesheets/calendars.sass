@@ -1,53 +1,57 @@
 @import coffee_shop
 
-.simple-calendar
+.cards
+  display: flex
+  flex-flow: row wrap
+  justify-content: flex-start
 
-  .calendar-heading
-    padding: 0 0 2rem 0
-    text-align: center
-    font-size: 2rem
+  .coffee-card
+    background-color: $sky-color
     color: $white
+    margin: 2px
+    padding: 1rem 1rem 1.5rem 1rem
+    margin-bottom: 1rem
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    border-radius: 0.5rem
 
-    #{$a-tags}
+    .user
+      font-size: 0.8rem
+
+    .revenue
+      font-size: 1.4rem
+
+    .datetime
+      font-size: 0.8rem
+
+    .hours
+      font-size: 1.2rem
+
+    &:link
       color: $white
       text-decoration: none
 
-    #{$a-tags-hover}
+    &:hover
+      background-color: $ghost-sky-color
       color: $white
+      text-decoration: none
 
-  .calendar-dates
+    &:active
+      color: $white
+      text-decoration: none
 
-    .calendar-date
+    &:visited
+      color: $white
+      text-decoration: none
 
-      #{$a-tags}
-        color: $sky-color
-        text-decoration: none
+  .coffee-card:hover
+    background-color: $ghost-sky-color
 
-      #{$a-tags-hover}
-        color: $sky-color
+.day-sale
 
-      .date-title
-        font-size: 1.5rem
-        padding: 0.5rem
-        background-color: $sky-color
-        margin-bottom: 1rem
-        text-align: center
-        color: $white
-
-      .wday-0
-        .date-title
-          background-color: $white
-          color: $sky-color
-      .wday-6
-        @extend .wday-0
-      .today
-        .date-title
-          background-color: $bloody-color
-          color: $white
-
-  .item
-    display: flex
-    justify-content: space-between
+  .multiply-item
     margin-bottom: 10px
     background-color: $sky-color
     padding: 10px 10px
@@ -61,14 +65,9 @@
         margin-right: 2rem
       
   .single-item
-    @extend .item
+    @extend .multiply-item
     background-color: $white
     color: $sky-color
-
-  .check
-
-    .time
-      margin-right: 2rem
 
   .check
     display: flex
@@ -79,3 +78,6 @@
     color: $white
     font-weight: bold
     margin-bottom: 2rem
+
+    .time
+      margin-right: 2rem

@@ -85,3 +85,5 @@ gem 'grape', '~> 0.14.0'
 gem 'grape-swagger', '~> 0.20.1'
 gem 'grape-swagger-rails', '~> 0.2.1'
 gem 'grape-entity'
+
+gem 'simple_form'

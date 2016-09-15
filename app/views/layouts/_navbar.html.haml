@@ -5,9 +5,6 @@
         %h1 Coffee Shop
     - if @point.present?
       .point-title
-        - if params[:controller] == 'orders'
-          = link_to(calendar_path(id: Time.now.strftime('%Y-%m-%d'), point: @point)) do
-            %h6= @point.title
-        - else
-          = link_to(orders_path(point: @point)) do
+        - if opened_day_sale?
+          = link_to( point_path(@point) ) do
             %h6= @point.title

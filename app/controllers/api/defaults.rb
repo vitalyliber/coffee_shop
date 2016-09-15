@@ -22,7 +22,7 @@ module API
 
       # global exception handler, used for error notifications
       rescue_from :all do |e|
-        error!({message: "Internal server error: #{e}", with: API::V1::Entities::ApiError}, 500)
+        error!({message: "Internal server error: #{e}"}, 500)
       end
 
 

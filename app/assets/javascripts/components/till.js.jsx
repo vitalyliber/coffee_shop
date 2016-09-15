@@ -7,13 +7,14 @@ class Till extends React.Component {
 
   componentDidMount() {
     point = $('#point').val();
+    statistics_path = $('#statistics').val();
 
     store.dispatch({
       type: 'UPDATE_SUM_ORDERS',
       sum_products: $('#sum_orders').val()
     });
 
-    axios.get('/api/v1/products')
+    axios.get('/api/v1/products?point=' + point)
       .then(function (response) {
 
         let products_from_api = response.data.products;
@@ -37,6 +38,7 @@ class Till extends React.Component {
 
   componentWillMount() {
     common_price = 0;
+    statistics_path = null;
   }
 
   componentWillReceiveProps () {
@@ -88,7 +90,14 @@ class Till extends React.Component {
       <div>
         <div className="container">
           {
-            Object.keys(this.props.products).map(function (key) {
+            Object.keys(this.props.products).sort(function (a, b) {
+              var nameA=this.props.products[a].title.toLowerCase(), nameB=this.props.products[b].title.toLowerCase();
+              if (nameA < nameB)
+                return -1;
+              if (nameA > nameB)
+                return 1;
+              return 0;
+            }.bind(this)).map(function (key) {
               return <TillProduct
                 key={key}
                 product={this.props.products[key]}
@@ -99,9 +108,9 @@ class Till extends React.Component {
 
         <div className="footer" style={ {display: common_price === 0 ? null : 'none'} }>
           <div className="container">
-            <div className="elements">
+            <a href={statistics_path} className="elements">
               {this.props.sum_orders} ₽
-            </div>
+            </a>
           </div>
         </div>
 

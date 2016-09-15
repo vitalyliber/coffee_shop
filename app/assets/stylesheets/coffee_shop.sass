@@ -3,18 +3,124 @@ $a-tags-hover: 'a:active, a:hover'
 
 $sky-color: #30A9DE
 $ghost-sky-color: #32baf1
+$light-sky-color: rgba(50, 200, 255, 0.74)
 $bloody-color: #E53A40
 $ghost-bloody-color: #f93b41
 $yellow-color: #EFDC05
 $black: black
 $white: white
+$dirty-white: #f9f9f9
 
 .common-item
   display: flex
   justify-content: center
   margin-bottom: 10px
   padding: 10px 10px
-  color: $white
   font-size: 1.5rem
   font-weight: bold
   margin-bottom: 1rem
+
+.common-button
+  width: 100%
+  padding: 10px 10px
+  color: $white
+  background-color: $sky-color
+  font-size: 1.5rem
+  font-weight: bold
+  margin-bottom: 1rem
+
+.common-button:hover
+  background-color: $ghost-sky-color
+
+.remove-button
+  @extend .common-button
+  background-color: $bloody-color
+
+.remove-button:hover
+  background-color: $ghost-bloody-color
+
+.info-block
+  padding: 0 0 2rem 0
+  text-align: center
+  font-size: 2rem
+  color: $white
+
+.help-block
+  color: $white
+  font-weight: bold
+  display: block
+  margin-top: 0.5rem
+  text-align: center
+
+.item-light
+  @extend .common-item
+  background-color: $white
+  text-decoration: none
+  color: $sky-color
+
+  &:link
+    color: $sky-color
+    text-decoration: none
+
+  &:hover
+    background-color: $dirty-white
+    color: $sky-color
+    text-decoration: none
+
+  &:active
+    color: $sky-color
+    text-decoration: none
+
+  &:visited
+    color: $sky-color
+    text-decoration: none
+
+.item-middle
+  @extend .common-item
+  background-color: $sky-color
+  text-decoration: none
+  color: $white
+
+  &:link
+    color: $white
+    text-decoration: none
+
+  &:hover
+    background-color: $ghost-sky-color
+    color: $white
+    text-decoration: none
+
+  &:active
+    color: $white
+    text-decoration: none
+
+  &:visited
+    color: $white
+    text-decoration: none
+
+.item-heavy
+  @extend .common-item
+  background-color: $bloody-color
+  text-decoration: none
+  color: $white
+
+  &:link
+    color: $white
+    text-decoration: none
+
+  &:hover
+    background-color: $ghost-bloody-color
+    color: $white
+    text-decoration: none
+
+  &:active
+    color: $white
+    text-decoration: none
+
+  &:visited
+    color: $white
+    text-decoration: none
+
+.justify-between
+  display: flex
+  justify-content: space-between

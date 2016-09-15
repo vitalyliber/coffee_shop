@@ -3,6 +3,7 @@ module API
     class Orders < Grape::API
       format :json
       helpers API::AuthHelper
+      helpers OrdersHelper
       include API::Defaults
 
       before do
@@ -25,19 +26,38 @@ module API
 
           order = Order.new( point_id: params[:point] )
 
-          JSON.parse( params[:products], symbolize_names: true ).dig(:products).each do |product|
+          raw_code = {
+              products: [],
+              price: 0
+          }
 
-            product.dig( :repeat ).times do
-              order.products << Product.find( product.dig(:id) )
-            end
-
+          JSON.parse( params[:products], symbolize_names: true ).dig(:products).each do |p|
+            product = Product.find( p.dig(:id) )
+            raw_code[:products] << {
+              id: product.id,
+              title: product.title,
+              price: product.price,
+              meter: product.meter,
+              ml: product.ml,
+              repeat: p.dig(:repeat)
+            }
           end
 
-          order.save
+          raw_code.dig(:products).each do |product|
+            product.dig(:repeat).times do
+              raw_code[:price] += product[:price]
+            end
+          end
+
+          order.raw_code = raw_code.to_json
 
           point = Point.find_by(id: params[:point])
-          date = Time.now
-          orders = point.orders.all_day(date)
+          day_sale = point.day_sales.find_by(status: :opened, user: current_user)
+
+          order.day_sale = day_sale
+          order.save
+
+          orders = point.orders.current_sales(day_sale.start)
 
           sum_orders orders
         end

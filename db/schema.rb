@@ -10,21 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160813165317) do
+ActiveRecord::Schema.define(version: 20160911151428) do
 
-  create_table "order_lists", force: :cascade do |t|
-    t.integer  "order_id"
-    t.integer  "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "day_sales", force: :cascade do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.integer  "point_id"
+    t.integer  "user_id"
+    t.integer  "status",     default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "orders", force: :cascade do |t|
     t.string   "title"
-    t.integer  "cost_price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "raw_code"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "point_id"
+    t.integer  "day_sale_id"
   end
 
   create_table "points", force: :cascade do |t|
@@ -34,14 +38,22 @@ ActiveRecord::Schema.define(version: 20160813165317) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "product_lists", force: :cascade do |t|
+    t.integer  "point_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.boolean  "active"
     t.string   "title"
     t.text     "description"
     t.integer  "price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "ml"
+    t.integer  "product_list_id"
+    t.integer  "meter",           default: 0
   end
 
   create_table "roles", force: :cascade do |t|

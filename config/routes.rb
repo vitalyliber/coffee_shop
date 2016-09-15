@@ -3,11 +3,22 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   authenticate :user do
-    root 'homes#index'
-    resources :orders
+    root 'points#index'
+
     resources :calendars
-    resources :calendar_points
-    resources :order_points
+    resources :points do
+      get :till
+      resources :orders do
+        collection do
+          get :day_sales, as: :sales
+        end
+      end
+      resources :products
+      member do
+        get :start_sales, as: :sale
+        delete :end_sales, as: :close
+      end
+    end
   end
 
   mount GrapeSwaggerRails::Engine => '/api/docs'

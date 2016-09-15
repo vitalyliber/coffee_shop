@@ -1,7 +1,8 @@
 class Product < ApplicationRecord
   resourcify
-  validates :title, :price, :ml, presence: :true
+  validates :title, :price, :ml, :meter, presence: :true
 
-  has_many :order_lists
-  has_many :orders, through: :order_lists
+  belongs_to :product_list
+
+  enum meter: [:ml, :piece]
 end
