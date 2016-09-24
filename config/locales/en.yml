@@ -1,23 +1,29 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  enums:
+    product:
+      meter:
+        ml: "Milligrams"
+        piece: "Pieces"
+
+  open_till: "OPEN TILL"
+  open_day_sale: "OPEN DAY SALE"
+  statistics: "STATISTICS"
+  products: "PRODUCTS"
+  points: "POINTS"
+  close_day_sales: "CLOSE DAY SALES"
+  ago: "ago"
+  day_sale_is_opened: "Day sale is opened"
+  last_day_sale_is_closed: "Last day sale is closed"
+  open_your_first_day_sale: "Open your first Day Sale"
+  are_you_sure: "Are you sure?"
+  day_sales: "DAY SALES"
+  hours: "Hours"
+  revenue: "Revenue"
+  product_name: "Name"
+  product_quantity: "Quantity"
+  product_price: "Price"
+  product_meter: "Meter"
+  create_product: "CREATE PRODUCT"
+  save_product: "SAVE"
+  add_product: "ADD PRODUCT"
+  remove_product: "REMOVE"

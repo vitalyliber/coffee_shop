@@ -8,6 +8,6 @@ document.addEventListener("turbolinks:load", function() {
   $('.datetime').each(function() {
     DateUtc = moment.utc( $(this).attr('val') );
     localDate = moment(DateUtc).local();
-    this.textContent = localDate.format('Do MMM HH:mm');
+    this.textContent = localDate.format('D.MM HH:mm');
   });
 });

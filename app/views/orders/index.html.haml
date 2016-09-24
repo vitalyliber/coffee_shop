@@ -1,6 +1,6 @@
 .container
   .info-block
-    STATISTICS
+    = t :statistics
 
   .cards
     - @day_sales.each do |day_sale|
@@ -8,6 +8,6 @@
         = link_to(sales_point_orders_path( @point, day_sale: day_sale.id ), class: 'coffee-card') do
           .datetime{ val: day_sale.start }
           .datetime{ val: day_sale.end }
-          .hours= "Hours: #{( (day_sale.end - day_sale.start) / 1.hour ).round}"
-          .revenue= "Revenue: #{(sum_orders day_sale.orders)} ₽"
+          .hours= "#{t :hours}: #{( (day_sale.end - day_sale.start) / 1.hour ).round}"
+          .revenue= "#{t :revenue}: #{(sum_orders day_sale.orders)} ₽"
           .user= day_sale.user.email

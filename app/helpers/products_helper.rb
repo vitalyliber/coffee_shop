@@ -13,9 +13,9 @@ module ProductsHelper
 
   def submit_for_form
     if params[:action] == 'new'
-      'CREATE PRODUCT'
+      t(:create_product)
     elsif params[:action] == 'edit'
-      'SAVE PRODUCT'
+      t(:save_product)
     end
   end
 end

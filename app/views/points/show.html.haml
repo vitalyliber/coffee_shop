@@ -2,21 +2,21 @@
 
   - if @day_sale.present?
     .info-block
-      %div Day sale is opened
-      %div= "#{distance_of_time_in_words(Time.now - @day_sale.start)} ago"
+      %div= t :day_sale_is_opened
+      %div= "#{distance_of_time_in_words(Time.now - @day_sale.start)} #{t :ago}"
 
-    = link_to 'OPEN TILL', point_till_path(@point), class: 'item-light'
+    = link_to t(:open_till), point_till_path(@point), class: 'item-light'
   - else
     - if @last_day_sale.present?
       .info-block
-        %div Last day sale is closed
-        %div= "#{distance_of_time_in_words(Time.now - @last_day_sale.end)} ago"
+        %div= t :last_day_sale_is_closed
+        %div= "#{distance_of_time_in_words(Time.now - @last_day_sale.end)} #{t :ago}"
     - else
-      .info-block= "Open your first Day Sale"
-    = link_to 'OPEN DAY SALE', sale_point_path(@point), class: 'item-heavy'
+      .info-block= t :open_your_first_day_sale
+    = link_to t(:open_day_sale), sale_point_path(@point), class: 'item-heavy'
   - if @point.day_sales.closed.present?
-    = link_to 'STATISTICS', point_orders_path(@point), class: 'item-middle'
-  = link_to 'PRODUCTS', point_products_path(@point), class: 'item-middle'
-  = link_to 'POINTS', points_path(set: 'point'), class: 'item-middle'
+    = link_to t(:statistics), point_orders_path(@point), class: 'item-middle'
+  = link_to t(:products), point_products_path(@point), class: 'item-middle'
+  = link_to t(:points), points_path(set: 'point'), class: 'item-middle'
   - if @day_sale.present?
-    = link_to 'CLOSE DAY SALES', close_point_path(@point), method: :delete, data: {confirm: "Are you sure?"}, class: 'item-heavy'
+    = link_to t(:close_day_sales), close_point_path(@point), method: :delete, data: {confirm: t(:are_you_sure)}, class: 'item-heavy'

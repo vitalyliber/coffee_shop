@@ -1,0 +1,29 @@
+ru:
+  enums:
+    product:
+      meter:
+        ml: "Миллиграммы"
+        piece: "Штуки"
+
+  open_till: "КАССА"
+  open_day_sale: "ОТКРЫТЬ СМЕНУ"
+  statistics: "СТАТИСТИКА"
+  products: "ПРОДУКТЫ"
+  points: "ТОЧКИ ПРОДАЖ"
+  close_day_sales: "ЗАКРЫТЬ СМЕНУ"
+  ago: "назад"
+  day_sale_is_opened: "Смена была открыта"
+  last_day_sale_is_closed: "Смена была закрыта"
+  open_your_first_day_sale: "Открыть смену впервые"
+  are_you_sure: "Вы уверены?"
+  day_sales: "ПРОДАЖИ"
+  hours: "Часов"
+  revenue: "Выручка"
+  product_name: "Название"
+  product_quantity: "Количество"
+  product_price: "Цена"
+  product_meter: "Мера"
+  create_product: "СОЗДАТЬ"
+  save_product: "СОХРАНИТЬ"
+  add_product: "СОЗДАТЬ ПРОДУКТ"
+  remove_product: "УДАЛИТЬ"
