@@ -45,7 +45,7 @@ en:
 
   devise_form:
     sign_in: "Sign in"
-    sign_up_process: "Sign in"
+    sign_up_process: "Sign up"
     sign_up: "Sign up"
     enter: "Enter"
     min: "minimum"
