@@ -31,6 +31,9 @@ ru:
   product_successfully_created: "Продукт успешно создан"
   product_successfully_destroyed: "Продукт успешно удален"
 
+  day_sales_successfully_opened: "Касса успешно открыта"
+  day_sales_successfully_closed: "Касса успешно закрыта"
+
   point_successfully_created: "Точка продаж успешно создана"
   please_type_a_point_name: "Введите имя точки продаж"
   new_point: "СОЗДАТЬ ТОЧКУ"

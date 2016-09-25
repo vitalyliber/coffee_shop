@@ -54,6 +54,8 @@ class PointsController < ApplicationController
     @day_sale = DaySale.new(status: :opened, user: current_user, point: @point, start: Time.now)
 
     if @day_sale.save
+      flash[:success] = t :day_sales_successfully_opened
+
       redirect_to point_path(@point)
     else
       render 'show'
@@ -64,6 +66,8 @@ class PointsController < ApplicationController
     day_sales = @point.day_sales.find_by(status: :opened, user: current_user)
 
     if day_sales.update(status: :closed, end: Time.now)
+      flash[:success] = t :day_sales_successfully_closed
+
       redirect_to point_path(@point)
     end
   end

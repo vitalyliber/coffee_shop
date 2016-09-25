@@ -31,6 +31,9 @@ en:
   product_successfully_created: "Product successfully created"
   product_successfully_destroyed: "Product successfully removed"
 
+  day_sales_successfully_opened: "Day sale successfully opened"
+  day_sales_successfully_closed: "Day sale successfully closed"
+
   point_successfully_created: "Point successfully created"
   please_type_a_point_name: "Please, type a point name"
   new_point: "NEW POINT"
