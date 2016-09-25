@@ -1,4 +1,5 @@
 .container
   .products
     = render 'products/form'
-    = button_to t(:remove_product), point_product_path(@point, @product), class: 'btn btn-default remove-button', method: :delete, data: {confirm: "Are you sure?"}
+    - if @point.product_list.products.count > 1
+      = button_to t(:remove_product), point_product_path(@point, @product), class: 'btn btn-default remove-button', method: :delete, data: {confirm: "Are you sure?"}
