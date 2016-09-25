@@ -27,3 +27,13 @@ en:
   save_product: "SAVE"
   add_product: "ADD PRODUCT"
   remove_product: "REMOVE"
+
+  devise_form:
+    sign_in: "Sign in"
+    sign_in_process: "Sign in"
+    sign_up: "Sign up"
+    enter: "Enter"
+    min: "minimum"
+    symbols: "Symbols"
+    password: "Password"
+    remember: "Remember"

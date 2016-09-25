@@ -1,6 +1,6 @@
 .container
   .form-signin
-    %h2.form-signin-heading Регистрация
+    %h2.form-signin-heading= t('devise_form.sign_in_process')
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = devise_error_messages!
       .field
@@ -8,10 +8,10 @@
       .field
         = f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: 'Password'
       .notice-password
-        = f.label :password, 'Пароль'
+        = f.label :password, t('devise_form.password')
         - if @minimum_password_length
           %em
-            (Минимум #{@minimum_password_length} символов)
+            (#{t 'devise_form.min'} #{@minimum_password_length} #{t 'devise_form.symbols'})
       .actions
-        = f.submit "Зарегистрироваться", class: 'btn btn-lg btn-primary btn-block'
+        = f.submit t('devise_form.sign_in'), class: 'btn btn-lg btn-primary btn-block'
     = render "devise/shared/links"

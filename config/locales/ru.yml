@@ -27,3 +27,13 @@ ru:
   save_product: "СОХРАНИТЬ"
   add_product: "СОЗДАТЬ ПРОДУКТ"
   remove_product: "УДАЛИТЬ"
+
+  devise_form:
+    sign_in: "Зарегистрироваться"
+    sign_in_process: "Регистрация"
+    sign_up: "Авторизация"
+    enter: "Войти"
+    min: "Минимум"
+    symbols: "Символов"
+    password: "Пароль"
+    remember: "Запомнить"
