@@ -13,7 +13,7 @@
         %div= "#{distance_of_time_in_words(Time.now - @last_day_sale.end)} #{t :ago}"
     - else
       .info-block= t :open_your_first_day_sale
-    = link_to t(:open_day_sale), sale_point_path(@point), class: 'item-heavy'
+    = link_to t(:open_day_sale), sale_point_path(@point), data: {confirm: t(:are_you_sure)}, class: 'item-heavy'
   - if @point.day_sales.closed.present?
     = link_to t(:statistics), point_orders_path(@point), class: 'item-middle'
   = link_to t(:products), point_products_path(@point), class: 'item-middle'
