@@ -8,7 +8,7 @@
   %br
 
   - @admin_points.each do |point|
-    = link_to point.title, point_path(point, set: 'point'), class: 'item-middle'
+    = link_to point.title, set_point_path(point), class: 'item-middle'
 
   - @barman_points.each do |point|
-    = link_to point.title, point_path(point), class: 'item-middle'
+    = link_to point.title, set_point_path(point), class: 'item-middle'
