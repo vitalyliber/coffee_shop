@@ -1,6 +1,6 @@
 .container
   .form-signin
-    %h2.form-signin-heading= t('devise_form.sign_up')
+    %h2.form-signin-heading= t('devise_form.sign_in')
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .field
         = f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email address'

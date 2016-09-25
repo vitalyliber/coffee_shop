@@ -44,9 +44,9 @@ ru:
   you_have_chosen_point: "Вы выбрали точку продаж: %{point}"
 
   devise_form:
-    sign_in: "Зарегистрироваться"
-    sign_in_process: "Регистрация"
-    sign_up: "Авторизация"
+    sign_in: "Авторизация"
+    sign_up_process: "Зарегистрироваться"
+    sign_up: "Регистрация"
     enter: "Войти"
     min: "Минимум"
     symbols: "Символов"

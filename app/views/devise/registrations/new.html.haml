@@ -1,6 +1,6 @@
 .container
   .form-signin
-    %h2.form-signin-heading= t('devise_form.sign_in_process')
+    %h2.form-signin-heading= t('devise_form.sign_up')
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = devise_error_messages!
       .field
@@ -13,5 +13,5 @@
           %em
             (#{t 'devise_form.min'} #{@minimum_password_length} #{t 'devise_form.symbols'})
       .actions
-        = f.submit t('devise_form.sign_in'), class: 'btn btn-lg btn-primary btn-block'
+        = f.submit t('devise_form.sign_up_process'), class: 'btn btn-lg btn-primary btn-block'
     = render "devise/shared/links"
