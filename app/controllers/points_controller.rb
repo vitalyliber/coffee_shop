@@ -6,11 +6,32 @@ class PointsController < ApplicationController
 
   def index
     if params[:set].blank?
-      redirect_to point_path( Point.with_role(:admin, current_user).find_by(current: true) )
+      point = Point.with_role(:admin, current_user).find_by(current: true)
+
+      if point.blank?
+        Point.with_role(:admin, current_user).first.update(current: true)
+      end
+
+      redirect_to point_path(point)
     end
 
     @admin_points = Point.with_role(:admin, current_user)
     @barman_points = Point.with_role(:barman, current_user)
+  end
+
+  def create
+    point = Point.new(title: params[:name], current: true)
+
+    if point.save
+      flash[:success] = t :point_successfully_created
+      current_user.add_role :admin, point
+      product_list = ProductList.create(point: point)
+      Product.create(product_list: product_list, title: 'Coffee Cup', price: 140, ml: 400, meter: :ml)
+      redirect_to point_path(point, set: 'point')
+    else
+      flash.now[:error] = t :please_type_a_point_name
+      render :new
+    end
   end
 
   def show
@@ -18,6 +39,8 @@ class PointsController < ApplicationController
       points = Point.with_role(:admin, current_user)
       points.where(current: true).where.not(id: @point.id).each {|p| p.update(current: false)}
       @point.update(current: true) unless @point.current
+
+      flash.now[:success] = t(:you_have_chosen_point, point: @point.title)
     end
 
     @day_sale = DaySale.find_by(status: :opened, user: current_user, point: @point)

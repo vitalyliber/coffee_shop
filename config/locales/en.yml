@@ -28,6 +28,14 @@ en:
   add_product: "ADD PRODUCT"
   remove_product: "REMOVE"
 
+  point_successfully_created: "Point successfully created"
+  please_type_a_point_name: "Please, type a point name"
+  new_point: "NEW POINT"
+  add_point: "ADD POINT"
+  point_name: "Name"
+  points: "POINTS OF SALE"
+  you_have_chosen_point: "You have chosen point: %{point}"
+
   devise_form:
     sign_in: "Sign in"
     sign_in_process: "Sign in"

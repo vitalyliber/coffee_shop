@@ -63,6 +63,8 @@ GEM
     bootstrap (4.0.0.alpha3.1)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
+    bootstrap-sass-extras (0.0.7)
+      rails (>= 3.1.0)
     builder (3.2.2)
     byebug (9.0.5)
     cancancan (1.15.0)
@@ -325,6 +327,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print (~> 1.7)
   bootstrap (~> 4.0.0.alpha3.1)
+  bootstrap-sass-extras
   byebug
   cancancan
   capistrano (~> 3.1)

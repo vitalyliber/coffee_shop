@@ -28,6 +28,14 @@ ru:
   add_product: "СОЗДАТЬ ПРОДУКТ"
   remove_product: "УДАЛИТЬ"
 
+  point_successfully_created: "Точка продаж успешно создана"
+  please_type_a_point_name: "Введите имя точки продаж"
+  new_point: "СОЗДАТЬ ТОЧКУ"
+  add_point: "СОЗДАТЬ"
+  point_name: "Имя"
+  points: "ТОЧКИ ПРОДАЖ"
+  you_have_chosen_point: "Вы выбрали точку продаж: %{point}"
+
   devise_form:
     sign_in: "Зарегистрироваться"
     sign_in_process: "Регистрация"

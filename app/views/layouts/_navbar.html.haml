@@ -5,6 +5,5 @@
         %h1 Coffee Shop
     - if @point.present?
       .point-title
-        - if opened_day_sale?
-          = link_to( point_path(@point) ) do
-            %h6= @point.title
+        = link_to( point_path(@point) ) do
+          %h6= @point.title

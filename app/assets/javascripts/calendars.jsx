@@ -10,4 +10,9 @@ document.addEventListener("turbolinks:load", function() {
     localDate = moment(DateUtc).local();
     this.textContent = localDate.format('D.MM HH:mm');
   });
+
+
+  $('.alert-danger').delay(4000).slideUp();
+  $('.alert-success').delay(4000).slideUp();
+
 });
