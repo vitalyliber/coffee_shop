@@ -8,6 +8,7 @@
     %meta{name: "theme-color", content: "#30A9DE"}
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = favicon_link_tag 'favicon.png'
   %body
     = render 'layouts/navbar'
     = yield
