@@ -88,3 +88,6 @@ gem 'grape-swagger-rails', '~> 0.2.1'
 gem 'grape-entity'
 
 gem 'simple_form'
+
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'

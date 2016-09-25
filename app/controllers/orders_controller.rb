@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   include OrdersHelper
 
   def index
-    @day_sales = @point.day_sales.where(status: :closed, user: current_user).order(created_at: :desc)
+    @day_sales = @point.day_sales.where(status: :closed, user: current_user).order(created_at: :desc).page(params[:page]).per(20)
   end
 
   def day_sales
