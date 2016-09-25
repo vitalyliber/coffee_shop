@@ -16,7 +16,7 @@ class PointsController < ApplicationController
   end
 
   def create
-    point = Point.new(title: params[:name], current: true)
+    point = Point.new(title: params[:name])
 
     if point.save
       flash[:success] = t :point_successfully_created
