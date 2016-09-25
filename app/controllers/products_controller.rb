@@ -31,6 +31,7 @@ class ProductsController < ApplicationController
     @product.product_list = @point.product_list
 
     if @product.save
+      flash[:success] = t :product_successfully_created
       redirect_to point_products_path(@point)
     else
       render :new
@@ -39,6 +40,7 @@ class ProductsController < ApplicationController
 
   def destroy
     if @product.destroy
+      flash[:success] = t :product_successfully_destroyed
       redirect_to point_products_path(@point)
     else
       render :edit

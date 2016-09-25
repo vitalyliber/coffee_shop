@@ -28,6 +28,9 @@ en:
   add_product: "ADD PRODUCT"
   remove_product: "REMOVE"
 
+  product_successfully_created: "Product successfully created"
+  product_successfully_destroyed: "Product successfully removed"
+
   point_successfully_created: "Point successfully created"
   please_type_a_point_name: "Please, type a point name"
   new_point: "NEW POINT"
