@@ -20,3 +20,4 @@
   = link_to t(:points), points_path(set: 'point'), class: 'item-middle'
   - if @day_sale.present?
     = link_to t(:close_day_sales), close_point_path(@point), method: :delete, data: {confirm: t(:are_you_sure)}, class: 'item-heavy'
+  = link_to t(:exit), destroy_user_session_path, method: :delete, data: {confirm: t(:are_you_sure)}, class: 'item-light'

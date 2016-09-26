@@ -42,6 +42,7 @@ ru:
   point_name: "Имя"
   points: "ТОЧКИ ПРОДАЖ"
   you_have_chosen_point: "Вы выбрали точку продаж: %{point}"
+  exit: "Выйти"
 
   devise_form:
     sign_in: "Авторизация"
