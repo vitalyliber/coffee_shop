@@ -10,7 +10,7 @@ You need mac or linux for starting Coffee Shop.
 
 Run this command in your terminal:
 
-_You need to install ruby version manager if he not installed_ :rocket:
+_You need to install ruby version manager if it not installed_ :rocket:
 ```shell
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 \curl -sSL https://get.rvm.io | bash -s stable
