@@ -1,0 +1,55 @@
+ru:
+  enums:
+    product:
+      meter:
+        ml: "Миллиграммы"
+        piece: "Штуки"
+
+  open_till: "КАССА"
+  open_day_sale: "ОТКРЫТЬ СМЕНУ"
+  statistics: "СТАТИСТИКА"
+  products: "ПРОДУКТЫ"
+  points: "ТОЧКИ ПРОДАЖ"
+  close_day_sales: "ЗАКРЫТЬ СМЕНУ"
+  ago: "назад"
+  day_sale_is_open: "Смена открыта"
+  work_time: "Время работы"
+  last_day_sale_is_closed: "Смена была закрыта"
+  open_your_first_day_sale: "Открыть смену впервые"
+  are_you_sure: "Вы уверены?"
+  day_sales: "ПРОДАЖИ"
+  hours: "Часов"
+  revenue: "Выручка"
+  product_name: "Название"
+  product_quantity: "Количество"
+  product_price: "Цена"
+  product_meter: "Мера"
+  create_product: "СОЗДАТЬ"
+  save_product: "СОХРАНИТЬ"
+  add_product: "СОЗДАТЬ ПРОДУКТ"
+  remove_product: "УДАЛИТЬ"
+
+  product_successfully_created: "Продукт успешно создан"
+  product_successfully_destroyed: "Продукт успешно удален"
+
+  day_sales_successfully_opened: "Касса успешно открыта"
+  day_sales_successfully_closed: "Касса успешно закрыта"
+
+  point_successfully_created: "Точка продаж успешно создана"
+  please_type_a_point_name: "Введите имя точки продаж"
+  new_point: "СОЗДАТЬ ТОЧКУ"
+  add_point: "СОЗДАТЬ"
+  point_name: "Имя"
+  points: "ТОЧКИ ПРОДАЖ"
+  you_have_chosen_point: "Вы выбрали точку продаж: %{point}"
+  exit: "Выйти"
+
+  devise_form:
+    sign_in: "Авторизация"
+    sign_up_process: "Зарегистрироваться"
+    sign_up: "Регистрация"
+    enter: "Войти"
+    min: "Минимум"
+    symbols: "Символов"
+    password: "Пароль"
+    remember: "Запомнить"

@@ -15,11 +15,9 @@ body
   background-color: $yellow-color
 
 .navbar
-  border-radius: 0rem
-
-nav
   background-color: $sky-color
   margin-bottom: 3rem
+  border-radius: 0rem
 
   .navbar-logo
     color: $white
@@ -32,3 +30,61 @@ nav
 
     #{$a-tags-hover}
       color: $white
+
+.alert-success
+  text-align: center
+  background-color: $magic-green
+  border-color: $magic-green
+  color: $white
+
+.alert-danger
+  text-align: center
+  background-color: $bloody-color
+  border-color: $bloody-color
+  color: $white
+
+.pagination
+  display: flex
+  width: 100%
+  justify-content: center
+
+  .page-link
+    color: $sky-color
+
+    &:link
+      text-decoration: none
+
+    &:hover
+      text-decoration: none
+
+    &:active
+      text-decoration: none
+
+    &:visited
+      text-decoration: none
+
+  .active
+
+    .page-link
+      background-color: $sky-color
+      border-color: $sky-color
+
+      &:link
+        color: $white
+        text-decoration: none
+        border-color: $sky-color
+
+      &:hover
+        background-color: $ghost-sky-color
+        color: $white
+        text-decoration: none
+        border-color: $sky-color
+
+      &:active
+        color: $white
+        text-decoration: none
+        border-color: $sky-color
+
+      &:visited
+        color: $white
+        border-color: $sky-color

@@ -1,3 +1,5 @@
+var update = React.addons.update;
+
 class Till extends React.Component {
 
   constructor(props) {
@@ -81,7 +83,7 @@ class Till extends React.Component {
         console.log(response);
       })
       .catch(function (error) {
-        console.log(error);
+        alert(`Sorry, something is wrong: ${error}`);
     });
   }
 

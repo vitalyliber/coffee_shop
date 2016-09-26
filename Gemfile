@@ -65,6 +65,7 @@ gem 'react-rails'
 gem 'haml-rails', '~> 0.9.0'
 
 gem 'bootstrap', '~> 4.0.0.alpha3.1'
+gem 'bootstrap-sass-extras'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
@@ -87,3 +88,6 @@ gem 'grape-swagger-rails', '~> 0.2.1'
 gem 'grape-entity'
 
 gem 'simple_form'
+
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'

@@ -1,6 +1,6 @@
 .container
   .form-signin
-    %h2.form-signin-heading Авторизация
+    %h2.form-signin-heading= t('devise_form.sign_in')
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .field
         = f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email address'
@@ -9,7 +9,7 @@
       - if devise_mapping.rememberable?
         .field
           = f.check_box :remember_me
-          = f.label :remember_me, 'Запомнить'
+          = f.label :remember_me, t('devise_form.remember')
       .actions
-        = f.submit "Войти", class: 'btn btn-lg btn-primary btn-block'
+        = f.submit t('devise_form.enter'), class: 'btn btn-lg btn-primary btn-block'
     = render "devise/shared/links"

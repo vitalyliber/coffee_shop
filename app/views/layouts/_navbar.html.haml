@@ -1,10 +1,11 @@
 %nav.navbar.navbar-light.navbar-static-top
   .container
     .navbar-logo
-      = link_to(root_path) do
-        %h1 Coffee Shop
-    - if @point.present?
-      .point-title
-        - if opened_day_sale?
-          = link_to( point_path(@point) ) do
-            %h6= @point.title
+      - if current_user.present?
+        = link_to( point_path( @current_point ) ) do
+          %h1 Coffee Shop
+          .point-title
+            %h6= @current_point.title
+      - else
+        = link_to( root_path ) do
+          %h1 Coffee Shop

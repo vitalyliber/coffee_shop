@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160911151428) do
+ActiveRecord::Schema.define(version: 20160925154858) do
+
+  create_table "common_tunings", force: :cascade do |t|
+    t.integer  "current_point_id"
+    t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "day_sales", force: :cascade do |t|
     t.datetime "start"

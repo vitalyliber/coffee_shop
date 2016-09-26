@@ -1,6 +1,14 @@
 .container
+
+  .info-block= t :points
+
+  - if @admin_points.to_a.count < 3
+    = link_to t(:new_point), new_point_path, class: 'item-light'
+
+  %br
+
   - @admin_points.each do |point|
-    = link_to point.title, point_path(point), class: 'item-light'
+    = link_to point.title, set_point_path(point), class: 'item-middle'
 
   - @barman_points.each do |point|
-    = link_to point.title, point_path(point), class: 'item-middle'
+    = link_to point.title, set_point_path(point), class: 'item-middle'
