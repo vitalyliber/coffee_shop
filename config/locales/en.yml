@@ -42,7 +42,7 @@ en:
   point_name: "Name"
   points: "POINTS OF SALE"
   you_have_chosen_point: "You have chosen point: %{point}"
-  exit: "Exit"
+  exit: "EXIT"
 
   devise_form:
     sign_in: "Sign in"
