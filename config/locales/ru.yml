@@ -51,7 +51,7 @@ ru:
   access_denied: "Отсутствует доступ"
   key_successfully_generated: "Ключ успешно сгенерирован"
   something_went_wrong: "Что-то пошло не так - обратитесь в службу поддержки"
-  barman_successfully_removed_from_sales_point: "Что-то пошло не так - обратитесь в службу поддержки"
+  barman_successfully_removed_from_sales_point: "Бариста успешно удален из точки продажи"
   type_code_sales_point: "Введите код точки продаж"
   you_already_are_owner: "Вы уже являетесь владельцем точки продаж"
   sales_point_successfully_activated: "Точка продаж '%{title}' успешно активирована"
