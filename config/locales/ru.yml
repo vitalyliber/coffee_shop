@@ -44,8 +44,8 @@ ru:
   you_have_chosen_point: "Вы выбрали точку продаж: %{point}"
   exit: "ВЫЙТИ"
 
-    ok: 'Ок'
-    close: 'Отмена'
+  ok: 'Ок'
+  close: 'Отмена'
 
   devise_form:
     sign_in: "Авторизация"
