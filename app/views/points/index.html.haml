@@ -6,7 +6,7 @@
     = t :owner
 
   - @admin_points.each do |point|
-    = link_to point.title, set_point_path(point), class: 'item-middle'
+    = link_to point.title, set_point_path(point), data: {'long-press' => edit_point_path(point)}, class: 'item-middle'
 
   - if @barman_points.present?
     %br

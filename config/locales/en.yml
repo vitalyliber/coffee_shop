@@ -37,9 +37,11 @@ en:
   day_sales_successfully_closed: "Day sale successfully closed"
 
   point_successfully_created: "Point successfully created"
+  point_successfully_updated: "Point successfully updated"
   please_type_a_point_name: "Please, type a point name"
   new_point: "NEW POINT"
   add_point: "ADD POINT"
+  update_point: "UPDATE"
   point_name: "Name"
   points: "POINTS OF SALE"
   you_have_chosen_point: "You have chosen point: %{point}"

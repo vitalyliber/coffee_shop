@@ -15,4 +15,16 @@ document.addEventListener("turbolinks:load", function() {
   $('.alert-danger').delay(4000).slideUp();
   $('.alert-success').delay(4000).slideUp();
 
+
+  $('[data-long-press]').mouseup(function(){
+    clearTimeout(pressTimer);
+    return false;
+  }).mousedown(function(){
+    edit_order_path = $(this).attr('data-long-press');
+    pressTimer = window.setTimeout(function() {
+      window.location.href = edit_order_path
+    },700);
+    return false;
+  });
+
 });

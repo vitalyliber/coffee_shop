@@ -1,7 +1,7 @@
 class PointsController < ApplicationController
   include OrdersHelper
 
-  before_action :find_point, only: [:show, :start_sales, :end_sales, :till, :set]
+  before_action :find_point, only: [:show, :start_sales, :end_sales, :till, :set, :edit, :update]
   before_action :has_day_sale?, only: :till
 
   def index
@@ -34,6 +34,19 @@ class PointsController < ApplicationController
 
     if @day_sale.blank?
       @last_day_sale = DaySale.where(status: :closed, user: current_user, point: @point).last
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @point.update(title: params[:name])
+      flash[:success] = t :point_successfully_updated
+      redirect_to points_path(set: :true)
+    else
+      flash.now[:error] = t :please_type_a_point_name
+      render :edit
     end
   end
 
