@@ -1,0 +1,8 @@
+#modalConfirm.modal.fade{:role => "dialog"}
+  .modal-dialog.modal-sm
+    .modal-content
+      .modal-header
+        %h4.modal-title Подтвердите действие
+      .modal-footer
+        %button.btn.btn-default#closeModal{'data-dismiss' => 'modal'} Close
+        %a.btn.btn-default#confirmAction Save
