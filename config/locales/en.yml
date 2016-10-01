@@ -10,6 +10,7 @@ en:
   statistics: "STATISTICS"
   products: "PRODUCTS"
   points: "POINTS"
+  barmans: "BARMANS"
   close_day_sales: "CLOSE DAY SALES"
   ago: "ago"
   day_sale_is_open: "Day sale is open"

@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160925154858) do
+ActiveRecord::Schema.define(version: 20161001131232) do
+
+  create_table "barman_invites", force: :cascade do |t|
+    t.integer  "point_id"
+    t.string   "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "common_tunings", force: :cascade do |t|
     t.integer  "current_point_id"

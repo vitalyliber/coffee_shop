@@ -2,13 +2,24 @@
 
   .info-block= t :points
 
-  - if @admin_points.to_a.count < 3
-    = link_to t(:new_point), new_point_path, class: 'item-light'
-
-  %br
+  .info-block-min.f-w-bold
+    = t :owner
 
   - @admin_points.each do |point|
     = link_to point.title, set_point_path(point), class: 'item-middle'
 
+  - if @barman_points.present?
+    %br
+    .info-block-min.f-w-bold
+      = t :barman
+
   - @barman_points.each do |point|
+
     = link_to point.title, set_point_path(point), class: 'item-middle'
+
+  %br
+
+  - if @admin_points.to_a.count < 3
+    = link_to t(:new_point), new_point_path, class: 'item-light'
+
+  = link_to t(:activate), activate_points_path, class: 'item-light'

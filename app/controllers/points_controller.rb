@@ -6,9 +6,8 @@ class PointsController < ApplicationController
 
   def index
     if params[:set].blank?
-      point = @current_point
 
-      redirect_to point_path(point)
+      redirect_to point_path(@current_point)
     end
 
     @admin_points = Point.with_role(:admin, current_user)
@@ -71,8 +70,44 @@ class PointsController < ApplicationController
     @products = @point.product_list.products
 
     @day_sales = @point.day_sales.find_by(status: :opened, user: current_user)
-    orders = @point.orders.current_sales(@day_sales.start)
+    orders = @point.orders.current_sales(@day_sales.start).where(day_sale: @day_sales)
     @sum_orders = sum_orders orders
+  end
+
+  def activate
+  end
+
+  def activate_process
+    if params[:code].blank?
+      flash[:error] = t :type_code_sales_point
+
+      return redirect_to activate_points_path
+    end
+
+    barman_invite = BarmanInvite.find_by(code: params[:code])
+
+    if barman_invite.present?
+      point = barman_invite.point
+
+      if current_user.has_role? :admin, point
+        flash[:error] = t :you_already_are_owner
+
+        return redirect_to activate_points_path
+      end
+
+      current_user.add_role :barman, point
+
+      flash[:success] = t(:sales_point_successfully_activated, title: point.title)
+
+      barman_invite.delete
+
+    else
+      flash[:error] = t :sales_point_not_found_by_code
+
+      return redirect_to activate_points_path
+    end
+
+    redirect_to points_path(set: :true)
   end
 
   private
@@ -80,11 +115,7 @@ class PointsController < ApplicationController
   def find_point
     @point = Point.find_by(id: params[:id] || params[:point_id])
 
-    if (current_user.has_role? :admin, @point) or current_user.has_role? :barman, @point
-      @point
-    else
-      redirect_to root_path
-    end
+    point_protect
   end
 
   def has_day_sale?

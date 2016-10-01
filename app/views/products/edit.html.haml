@@ -2,4 +2,4 @@
   .products
     = render 'products/form'
     - if @point.product_list.products.count > 1
-      = button_to t(:remove_product), point_product_path(@point, @product), class: 'btn btn-default remove-button', method: :delete, data: {confirm: "Are you sure?"}
+      = link_to t(:remove_product), point_product_path(@point, @product), class: 'item-heavy', method: :delete, data: {'modal-confirm' => t(:are_you_sure) }

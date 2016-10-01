@@ -14,10 +14,15 @@ Rails.application.routes.draw do
         end
       end
       resources :products
+      resources :barmans
       member do
         get :set
         get :start_sales, as: :sale
         delete :end_sales, as: :close
+      end
+      collection do
+        get :activate
+        post :activate_process
       end
     end
   end

@@ -24,6 +24,35 @@ class ApplicationController < ActionController::Base
       if @current_point.blank?
         @current_point = common_tuning.update(current_point: Point.with_role(:admin, current_user).first)
       end
+
+    end
+  end
+
+  def point_protect
+    @point = @point || Point.find_by(id: params[:id] || params[:point_id])
+
+    unless (current_user.has_role? :admin, @point) or current_user.has_role? :barman, @point
+      flash[:error] = t :access_denied
+
+      common_tuning = CommonTuning.find_by(user: current_user)
+
+      @current_point = common_tuning.update(current_point: Point.with_role(:admin, current_user).first)
+
+      return redirect_to root_path
+    end
+  end
+
+  def point_admin_protect
+    @point = @point || Point.find_by(id: params[:id] || params[:point_id])
+
+    unless current_user.has_role? :admin, @point
+      flash[:error] = t :access_denied
+
+      common_tuning = CommonTuning.find_by(user: current_user)
+
+      @current_point = common_tuning.update(current_point: Point.with_role(:admin, current_user).first)
+
+      return redirect_to root_path
     end
   end
 

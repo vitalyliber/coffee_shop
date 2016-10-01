@@ -10,6 +10,7 @@ ru:
   statistics: "СТАТИСТИКА"
   products: "ПРОДУКТЫ"
   points: "ТОЧКИ ПРОДАЖ"
+  barmans: "БАРИСТЫ"
   close_day_sales: "ЗАКРЫТЬ СМЕНУ"
   ago: "назад"
   day_sale_is_open: "Смена открыта"
@@ -46,6 +47,24 @@ ru:
 
   ok: 'Ок'
   close: 'Отмена'
+
+  access_denied: "Отсутствует доступ"
+  key_successfully_generated: "Ключ успешно сгенерирован"
+  something_went_wrong: "Что-то пошло не так - обратитесь в службу поддержки"
+  barman_successfully_removed_from_sales_point: "Что-то пошло не так - обратитесь в службу поддержки"
+  type_code_sales_point: "Введите код точки продаж"
+  you_already_are_owner: "Вы уже являетесь владельцем точки продаж"
+  sales_point_successfully_activated: "Точка продаж '%{title}' успешно активирована"
+  sales_point_not_found_by_code: "Коду не соответствует ни одной точки продаж"
+  add_barman: "ДОБАВИТЬ БАРИСТУ"
+  generate_code: "Сгенерировать ключ?"
+  send_key_to_barman: "Отправьте ключ бармену"
+  barman_have_to_activate_key_in_sales_point: "Активировать ключ можно в меню точек продаж"
+  remove_barman: "УДАЛИТЬ"
+  barman_key: "Ключ"
+  activate: "АКТИВИРОВАТЬ"
+  barman: "БАРИСТА"
+  owner: "ВЛАДЕЛЕЦ"
 
   devise_form:
     sign_in: "Авторизация"
