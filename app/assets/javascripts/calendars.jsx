@@ -15,16 +15,19 @@ document.addEventListener("turbolinks:load", function() {
   $('.alert-danger').delay(4000).slideUp();
   $('.alert-success').delay(4000).slideUp();
 
+  activate_edit_point = false;
+  $('#activate-edit-point').click(function () {
 
-  $('[data-long-press]').mouseup(function(){
-    clearTimeout(pressTimer);
-    return false;
-  }).mousedown(function(){
-    edit_order_path = $(this).attr('data-long-press');
-    pressTimer = window.setTimeout(function() {
-      window.location.href = edit_order_path
-    },700);
-    return false;
-  });
+    if (activate_edit_point == false) {
+      activate_edit_point = true;
+      $('.edit-point').show();
+      $('.set-point').hide();
+    } else {
+      activate_edit_point = false;
+      $('.edit-point').hide();
+      $('.set-point').show();
+    }
+
+  })
 
 });
