@@ -1,11 +1,17 @@
 %nav.navbar.navbar-light.navbar-static-top
   .container
-    .navbar-logo
-      - if current_user.present?
-        = link_to( point_path( @current_point ) ) do
-          %h1 Coffee Shop
+    - if current_user.present?
+      .navbar-logo
+        = link_to(_back_url) do
+          = glyph('arrow-left')
+        = link_to( point_path( @current_point ), class: 'logo-links' ) do
+          = image_tag 'logo.png', size: '50x50'
           .point-title
-            %h6= @current_point.title
-      - else
-        = link_to( root_path ) do
-          %h1 Coffee Shop
+            = truncate(@current_point.title, length: 12, omission: '..')
+
+    - else
+      .navbar-logo-unauth
+        = link_to( root_path, class: 'logo-links' ) do
+          = image_tag 'logo.png', size: '50x50'
+          .point-title
+            = 'Coffe Shop'

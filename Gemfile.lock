@@ -63,6 +63,9 @@ GEM
     bootstrap (4.0.0.alpha3.1)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
+    bootstrap-glyphicons (0.0.1)
+      railties (>= 3.0)
+      sass (>= 3.2)
     bootstrap-sass-extras (0.0.7)
       rails (>= 3.1.0)
     bootstrap4-kaminari-views (1.0.0)
@@ -330,6 +333,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_print (~> 1.7)
   bootstrap (~> 4.0.0.alpha3.1)
+  bootstrap-glyphicons
   bootstrap-sass-extras
   bootstrap4-kaminari-views
   byebug

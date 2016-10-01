@@ -1,5 +1,5 @@
 .container
   = form_tag points_path, html: {class: 'form-horizontal'} do
-    = text_field_tag :name, '', placeholder: t(:point_name), class: 'form-control'
+    = text_field_tag :name, '', placeholder: t(:point_name), maxlength: '20', class: 'form-control'
     %br
     = submit_tag t(:add_point), class: 'btn btn-default common-button'
