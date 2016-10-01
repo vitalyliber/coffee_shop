@@ -4,6 +4,7 @@ $input-color-placeholder: $light-sky-color
 $input-color: $sky-color
 
 @import bootstrap
+@import 'bootstrap/glyphicons'
 @import orders
 @import calendars
 @import homes
@@ -22,7 +23,15 @@ body
   .navbar-logo
     color: $white
     display: flex
-    justify-content: center
+    justify-content: space-between
+    align-items: center
+
+    .glyphicon-arrow-left
+      font-size: 2rem
+      line-height: 0
+
+    .logo-links
+      display: flex
 
     #{$a-tags}
       color: $white
@@ -30,6 +39,10 @@ body
 
     #{$a-tags-hover}
       color: $white
+
+  .navbar-logo-unauth
+    @extend .navbar-logo
+    justify-content: center
 
 .alert-success
   text-align: center
