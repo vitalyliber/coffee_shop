@@ -44,6 +44,9 @@ en:
   you_have_chosen_point: "You have chosen point: %{point}"
   exit: "EXIT"
 
+  ok: 'Ok'
+  close: 'Close'
+
   devise_form:
     sign_in: "Sign in"
     sign_up_process: "Sign up"
