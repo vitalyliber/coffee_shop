@@ -3,14 +3,12 @@
   - if @day_sale.present?
     .info-block
       %div= t :day_sale_is_open
-      %div= "#{t :work_time}: #{distance_of_time_in_words(Time.now - @day_sale.start)}"
 
     = link_to t(:open_till), point_till_path(@point), class: 'item-light'
   - else
     - if @last_day_sale.present?
       .info-block
         %div= t :last_day_sale_is_closed
-        %div= "#{distance_of_time_in_words(Time.now - @last_day_sale.end)} #{t :ago}"
     - else
       .info-block= t :open_your_first_day_sale
     = link_to t(:open_day_sale), sale_point_path(@point), data: {'modal-confirm' => t(:are_you_sure)}, class: 'item-heavy'
