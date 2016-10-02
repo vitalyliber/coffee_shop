@@ -60,10 +60,10 @@
   .product-item-active
     @extend .product-item
     margin-bottom: 0
-    background-color: $bloody-color
+    background-color: $danger
 
   .product-item-active:hover
-    background-color: $ghost-bloody-color
+    background-color: $danger-light
 
 .product:last-child
   margin-bottom: 140px
@@ -93,8 +93,11 @@
 
 .footer-red
   @extend .footer
-  background-color: $bloody-color
+  background-color: $danger
   cursor: pointer
+
+.footer-red:hover
+  background-color: $danger-light
 
   .elements
     @extend .elements
