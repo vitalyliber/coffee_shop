@@ -47,7 +47,7 @@ class ApplicationController < ActionController::Base
   end
 
   def point_admin_protect
-    @point = @point || Point.find_by(id: params[:id] || params[:point_id])
+    @point = @point || Point.find_by(id: params[:point_id])
 
     unless current_user.has_role? :admin, @point
       flash[:error] = t :access_denied
