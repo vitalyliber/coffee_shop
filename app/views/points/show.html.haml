@@ -12,12 +12,19 @@
     - else
       .info-block= t :open_your_first_day_sale
     = link_to t(:open_day_sale), sale_point_path(@point), data: {'modal-confirm' => t(:are_you_sure)}, class: 'item-heavy'
-  - if @point.day_sales.closed.present?
+
+  - if @point.day_sales.closed.present? and current_user.has_role? :admin, @current_point
     = link_to t(:statistics), point_orders_path(@point), class: 'item-middle'
-  = link_to t(:products), point_products_path(@point), class: 'item-middle'
+
+  - if current_user.has_role? :admin, @current_point
+    = link_to t(:products), point_products_path(@point), class: 'item-middle'
+
   = link_to t(:points), points_path(set: 'point'), class: 'item-middle'
+
   - if current_user.has_role? :admin, @current_point
     = link_to t(:barmans), point_barmans_path(@current_point), class: 'item-middle'
+
   - if @day_sale.present?
     = link_to t(:close_day_sales), close_point_path(@point), method: :delete, data: {'modal-confirm' => t(:are_you_sure)}, class: 'item-heavy'
+
   = link_to t(:exit), destroy_user_session_path, method: :delete, data: {'modal-confirm' => t(:are_you_sure)}, class: 'item-light'

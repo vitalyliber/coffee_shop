@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :find_point
+  before_action :point_admin_protect
   include OrdersHelper
 
   def index
