@@ -9,7 +9,7 @@ state_path "/home/publisher/coffee_shop/shared/tmp/pids/puma.state"
 stdout_redirect '/home/publisher/coffee_shop/shared/log/puma_access.log', '/home/publisher/coffee_shop/shared/log/puma_error.log', true
 
 
-threads 16,32
+threads 0,32
 
 bind 'unix:///home/publisher/coffee_shop/shared/tmp/sockets/puma.sock'
 
