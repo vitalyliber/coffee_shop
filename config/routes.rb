@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: "users" }
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  authenticate :user do
-    root 'points#index'
 
+  root 'homes#index'
+
+  authenticate :user do
     resources :calendars
     resources :points do
       get :till

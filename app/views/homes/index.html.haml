@@ -1,3 +1,4 @@
-.container.home
-  = link_to 'Начать продажи', order_points_path, class: 'till'
-  = link_to 'Статистика', calendar_points_path, class: 'item'
+.container
+  .info-block
+    %div Авторизация
+  = link_to 'Вконтакте', user_vkontakte_omniauth_authorize_path, class: 'item-middle'
