@@ -1,7 +1,7 @@
 class BarmansController < ApplicationController
 
-  before_action :find_barman, only: [:show, :destroy]
-  before_action :point_admin_protect
+  before_action :find_barman, only: [:show, :destroy, :self_destroy]
+  before_action :point_admin_protect, except: [:self_destroy]
 
   def index
     @barmans = User.with_role(:barman, @current_point)
@@ -32,6 +32,20 @@ class BarmansController < ApplicationController
     end
 
     redirect_to point_barmans_path(@current_point)
+  end
+
+  def self_destroy
+    @point = Point.find_by(id: params[:point_id])
+
+    @barman.remove_role :barman, @point
+
+    unless @barman.has_role? :barman, @point
+      flash[:success] = t :you_successfully_removed_from_sales_point
+    else
+      flash[:error] = t :something_went_wrong
+    end
+
+    redirect_to points_path(set: 'point', mode: :edit)
   end
 
   private

@@ -14,7 +14,11 @@ Rails.application.routes.draw do
         end
       end
       resources :products
-      resources :barmans
+      resources :barmans do
+        member do
+          get :self_destroy
+        end
+      end
       member do
         get :set
         get :start_sales, as: :sale
