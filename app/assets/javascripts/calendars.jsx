@@ -15,19 +15,4 @@ document.addEventListener("turbolinks:load", function() {
   $('.alert-danger').delay(4000).slideUp();
   $('.alert-success').delay(4000).slideUp();
 
-  activate_edit_point = false;
-  $('#activate-edit-point').click(function () {
-
-    if (activate_edit_point == false) {
-      activate_edit_point = true;
-      $('.edit-point').show();
-      $('.set-point').hide();
-    } else {
-      activate_edit_point = false;
-      $('.edit-point').hide();
-      $('.set-point').show();
-    }
-
-  })
-
 });

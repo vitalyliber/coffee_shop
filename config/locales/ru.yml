@@ -67,6 +67,8 @@ ru:
   activate: "АКТИВИРОВАТЬ"
   barman: "БАРМЕН"
   owner: "ВЛАДЕЛЕЦ"
+  edit_mode: "РЕЖИМ РЕДАКТИРОВАНИЯ"
+  usual_mode: "ОБЫЧНЫЙ РЕЖИМ"
 
   devise_form:
     sign_in: "Авторизация"

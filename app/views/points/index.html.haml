@@ -5,11 +5,12 @@
   .info-block-min.f-w-bold
     = t :owner
 
-  - @admin_points.each do |point|
-    = link_to point.title, set_point_path(point), data: {'long-press' => edit_point_path(point)}, class: 'item-middle set-point'
-
-  - @admin_points.each do |point|
-    = link_to point.title, edit_point_path(point), class: 'item-heavy edit-point', style: 'display: none'
+  - unless params[:mode] == 'edit'
+    - @admin_points.each do |point|
+      = link_to point.title, set_point_path(point), data: {'long-press' => edit_point_path(point)}, class: 'item-middle'
+  -else
+    - @admin_points.each do |point|
+      = link_to point.title, edit_point_path(point), class: 'item-heavy'
 
   - if @barman_points.present?
     %br
@@ -22,7 +23,15 @@
 
   %br
 
-  - if @admin_points.to_a.count < 3
-    = link_to t(:new_point), new_point_path, class: 'item-light'
+  - unless params[:mode] == 'edit'
 
-  = link_to t(:activate), activate_points_path, class: 'item-light'
+    = link_to t(:edit_mode), points_path(set: 'point', mode: :edit), class: 'item-heavy'
+
+  - else
+
+    - if @admin_points.to_a.count < 3
+      = link_to t(:new_point), new_point_path, class: 'item-light'
+
+    = link_to t(:activate), activate_points_path, class: 'item-light'
+
+    = link_to t(:usual_mode), points_path(set: 'point'), class: 'item-middle'

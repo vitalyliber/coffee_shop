@@ -67,6 +67,8 @@ en:
   activate: "ACTIVATE"
   barman: "BARMAN"
   owner: "OWNER"
+  edit_mode: "EDIT MODE"
+  usual_mode: "USUAL MODE"
 
   devise_form:
     sign_in: "Sign in"
