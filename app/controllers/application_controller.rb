@@ -38,9 +38,7 @@ class ApplicationController < ActionController::Base
     unless (current_user.has_role? :admin, @point) or current_user.has_role? :barman, @point
       flash[:error] = t :access_denied
 
-      common_tuning = CommonTuning.find_by(user: current_user)
-
-      @current_point = common_tuning.update(current_point: Point.with_role(:admin, current_user).first)
+      point_set_to_default
 
       return redirect_to root_path
     end
@@ -52,12 +50,16 @@ class ApplicationController < ActionController::Base
     unless current_user.has_role? :admin, @point
       flash[:error] = t :access_denied
 
-      common_tuning = CommonTuning.find_by(user: current_user)
-
-      @current_point = common_tuning.update(current_point: Point.with_role(:admin, current_user).first)
+      point_set_to_default
 
       return redirect_to root_path
     end
+  end
+
+  def point_set_to_default
+    common_tuning = CommonTuning.find_by(user: current_user)
+
+    @current_point = common_tuning.update(current_point: Point.with_role(:admin, current_user).first)
   end
 
 end

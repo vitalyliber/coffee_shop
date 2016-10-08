@@ -41,6 +41,7 @@ class BarmansController < ApplicationController
 
     unless @barman.has_role? :barman, @point
       flash[:success] = t :you_successfully_removed_from_sales_point
+      point_set_to_default
     else
       flash[:error] = t :something_went_wrong
     end
