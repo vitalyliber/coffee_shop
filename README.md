@@ -28,4 +28,4 @@ rails s
 
 _Link to staging server_ :herb:
 
-[Open me, please!](coffee-shop.toel.ru)
+[Open me, please!](http://coffee-shop.toel.ru)
