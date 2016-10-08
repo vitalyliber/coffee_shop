@@ -9,7 +9,7 @@
           .datetime{ val: day_sale.start }
           .datetime{ val: day_sale.end }
           .hours= "#{t :hours}: #{( (day_sale.end - day_sale.start) / 1.hour ).round}"
-          .revenue= "#{t :revenue}: #{(sum_orders day_sale.orders)} ₽"
+          .revenue= "#{t :revenue}: #{(sum_orders day_sale.orders)}"
           .user= day_sale.user.email
 
   = paginate @day_sales, theme: 'twitter-bootstrap-4', pagination_class: 'jjj'

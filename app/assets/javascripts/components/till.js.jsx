@@ -111,7 +111,7 @@ class Till extends React.Component {
         <div className="footer" style={ {display: common_price === 0 ? null : 'none'} }>
           <div className="container">
             <a href={statistics_path} className="elements">
-              {this.props.sum_orders} ₽
+              {this.props.sum_orders}
             </a>
           </div>
         </div>
@@ -119,7 +119,7 @@ class Till extends React.Component {
         <div className="footer-red" style={ {display: common_price === 0 ? 'none' : null} }>
           <div className="container">
             <div className="elements" onClick={this.buyHandler}>
-              {common_price} ₽
+              {common_price}
             </div>
           </div>
         </div>

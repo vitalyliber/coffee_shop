@@ -11,18 +11,18 @@
             .title= product.title
             .data
               .time= order.created_at
-              .price= "#{product.price}₽"
+              .price= "#{product.price}"
         - else
           .item
             .title= product.title
             .data
-              .price= "#{product.price}₽"
+              .price= "#{product.price}"
       - if order.products.count == 1
         %br
       - if order.products.count > 1
         .check
           .time= order.created_at
-          .cost= "#{order.products.sum(:price)}₽"
+          .cost= "#{order.products.sum(:price)}"
 
     .calendar-heading
-      = "#{number_with_delimiter(sum_orders( @orders ), :delimiter => '.')} ₽"
+      = "#{number_with_delimiter(sum_orders( @orders ), :delimiter => '.')}"
