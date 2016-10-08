@@ -23,6 +23,9 @@ rvm use 2.3.0@coffee-shop --create
 gem install bundler
 bundle install
 rake db:migrate
-rake db:seed_fu
 rails s
 ```
+
+_Link to staging server_ :herb:
+
+[Open me, please!](coffee-shop.toel.ru)
