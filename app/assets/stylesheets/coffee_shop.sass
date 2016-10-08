@@ -1,16 +1,18 @@
 $a-tags: 'a, a:active, a:hover, a:visited'
 $a-tags-hover: 'a:active, a:hover'
 
-$sky-color: #30A9DE
-$ghost-sky-color: #32baf1
-$light-sky-color: rgba(50, 200, 255, 0.74)
-$bloody-color: #E53A40
-$ghost-bloody-color: #f93b41
-$yellow-color: #EFDC05
-$black: black
+$sky-color: #3B8EC9
+$ghost-sky-color: #3FA9F5
+$light-sky-color: rgba(80, 64, 39, 0.68)
+$bloody-color: #A17950
+$ghost-bloody-color: #AF9E8A
+$yellow-color: #E6C899
+$black: #504027
 $white: white
 $dirty-white: #f9f9f9
 $magic-green: #79C559
+$danger: #D27054
+$danger-light: #e07b57
 
 .common-item
   display: flex
@@ -45,6 +47,16 @@ $magic-green: #79C559
   text-align: center
   font-size: 2rem
   color: $white
+
+.info-block-min
+  @extend .info-block
+  font-size: 1.2rem
+
+.no-padding
+  padding: 0rem
+
+.f-w-bold
+  font-weight: bold
 
 .help-block
   color: $white

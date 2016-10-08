@@ -10,7 +10,7 @@
             .title= product.dig(:title)
             .data
               .time{ val: order.created_at }
-              .price= "#{product.dig(:price)}₽"
+              .price= "#{product.dig(:price)}"
           %br
 
         - else
@@ -18,12 +18,12 @@
             .multiply-item.justify-between
               .title= product.dig(:title)
               .data
-                .price= "#{product.dig(:price)}₽"
+                .price= "#{product.dig(:price)}"
 
       - if raw_code.dig(:products).count > 1 or raw_code.dig(:products, 0, :repeat) > 1
         .check
           .time{ val: order.created_at }
-          .cost= "#{raw_code.dig(:price)}₽"
+          .cost= "#{raw_code.dig(:price)}"
 
     .info-block
-      = "#{number_with_delimiter(sum_orders(@orders), :delimiter => '.')} ₽"
+      = "#{number_with_delimiter(sum_orders(@orders), :delimiter => '.')}"

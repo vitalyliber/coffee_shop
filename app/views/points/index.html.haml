@@ -1,14 +1,40 @@
 .container
 
-  .info-block= t :points
+  .info-block#activate-edit-point= t :points
 
-  - if @admin_points.to_a.count < 3
-    = link_to t(:new_point), new_point_path, class: 'item-light'
+  .info-block-min.f-w-bold
+    = t :owner
+
+  - unless params[:mode] == 'edit'
+    - @admin_points.each do |point|
+      = link_to point.title, set_point_path(point), data: {'long-press' => edit_point_path(point)}, class: 'item-middle'
+  -else
+    - @admin_points.each do |point|
+      = link_to point.title, edit_point_path(point), class: 'item-heavy'
+
+  - if @barman_points.present?
+    %br
+    .info-block-min.f-w-bold
+      = t :barman
+
+  - unless params[:mode] == 'edit'
+    - @barman_points.each do |point|
+      = link_to point.title, set_point_path(point), class: 'item-middle'
+  - else
+    - @barman_points.each do |point|
+      = link_to point.title, self_destroy_point_barman_path(point, current_user), data: {'modal-confirm' => t(:leave_poin)}, class: 'item-heavy'
 
   %br
 
-  - @admin_points.each do |point|
-    = link_to point.title, set_point_path(point), class: 'item-middle'
+  - unless params[:mode] == 'edit'
 
-  - @barman_points.each do |point|
-    = link_to point.title, set_point_path(point), class: 'item-middle'
+    = link_to t(:edit_mode), points_path(set: 'point', mode: :edit), class: 'item-heavy'
+
+  - else
+
+    - if @admin_points.to_a.count < 3
+      = link_to t(:new_point), new_point_path, class: 'item-light'
+
+    = link_to t(:activate), activate_points_path, class: 'item-light'
+
+    = link_to t(:usual_mode), points_path(set: 'point'), class: 'item-middle'

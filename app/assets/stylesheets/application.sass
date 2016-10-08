@@ -1,7 +1,9 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=cyrillic'
 @import coffee_shop
 
 $input-color-placeholder: $light-sky-color
 $input-color: $sky-color
+$font-family-base: 'Open Sans Condensed', sans-serif
 
 @import bootstrap
 @import 'bootstrap/glyphicons'
@@ -47,15 +49,17 @@ body
 
 .alert-success
   text-align: center
-  background-color: $magic-green
-  border-color: $magic-green
-  color: $white
+  background-color: $white
+  border-color: $white
+  color: $sky-color
+  font-size: 1.2rem
 
 .alert-danger
   text-align: center
-  background-color: $bloody-color
-  border-color: $bloody-color
+  background-color: $danger
+  border-color: $danger
   color: $white
+  font-size: 1.2rem
 
 .pagination
   display: flex

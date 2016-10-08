@@ -1,0 +1,7 @@
+.container
+  .info-block.no-padding
+    = t :send_key_to_barman
+  .info-block-min
+    = t :barman_have_to_activate_key_in_sales_point
+
+  = text_field_tag :barman_code, @barman_code, class: 'form-control'

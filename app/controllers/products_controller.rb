@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :find_point
   before_action :find_product, only: [:update, :edit, :destroy]
+  before_action :point_admin_protect
   include ProductsHelper
 
   def index

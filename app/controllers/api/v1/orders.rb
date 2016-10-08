@@ -57,7 +57,7 @@ module API
           order.day_sale = day_sale
           order.save
 
-          orders = point.orders.current_sales(day_sale.start)
+          orders = point.orders.current_sales(day_sale.start).where(day_sale: day_sale)
 
           sum_orders orders
         end
