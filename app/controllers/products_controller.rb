@@ -60,7 +60,5 @@ class ProductsController < ApplicationController
 
   def find_point
     @point = Point.find_by(id: params[:point_id])
-
-    point_protect
   end
 end
