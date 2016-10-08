@@ -7,17 +7,17 @@ set :application, 'coffee_shop'
 set :repo_url, 'git@github.com:vitalyliber/coffee_shop.git'
 
 #add log file to shared folder
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads', 'config/secrets.yml')
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
 namespace :deploy do
   before 'check:linked_files', 'puma:config'
-  before :publishing, :upload_yml
+  after :publishing, :upload_yml
 end
 
 desc "Upload secrets.yml file"
 task :upload_yml do
   on roles(:app) do
-    upload! StringIO.new(File.read("config/secrets.yml")), "#{shared_path}/config/secrets.yml"
+    upload! StringIO.new(File.read("config/secrets.yml")), "#{current_path}/config/secrets.yml"
   end
 end
 
