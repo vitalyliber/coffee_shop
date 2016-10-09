@@ -72,6 +72,10 @@ en:
   edit_mode: "EDIT MODE"
   usual_mode: "USUAL MODE"
 
+  auth:
+    authentication: 'Authentication'
+    vk: "VKontakte"
+
   devise_form:
     sign_in: "Sign in"
     sign_up_process: "Sign up"

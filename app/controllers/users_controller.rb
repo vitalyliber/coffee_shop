@@ -28,7 +28,7 @@ class UsersController < Devise::OmniauthCallbacksController
 
   def after_omniauth_failure_path_for(_)
     flash.clear
-    flash[:error] = 'Ошибка авторизации: разрешите приложению доступ к общей информации вашего аккаунта Вконтакте'
+    flash[:error] = :something_went_wrong
     root_path
   end
 end

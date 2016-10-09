@@ -1,4 +1,4 @@
 .container
   .info-block
-    %div Авторизация
-  = link_to 'Вконтакте', user_vkontakte_omniauth_authorize_path, class: 'item-middle'
+    %div= t :authentication
+  = link_to t(:vk), user_vkontakte_omniauth_authorize_path, class: 'item-middle'

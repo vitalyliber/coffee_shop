@@ -72,6 +72,9 @@ ru:
   edit_mode: "РЕЖИМ РЕДАКТИРОВАНИЯ"
   usual_mode: "ОБЫЧНЫЙ РЕЖИМ"
 
+  authentication: "Авторизация"
+  vk: "ВКонтакте"
+
   devise_form:
     sign_in: "Авторизация"
     sign_up_process: "Зарегистрироваться"

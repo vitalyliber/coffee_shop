@@ -15,10 +15,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def after_sign_out_path_for(resource_or_scope)
-    root_path
-  end
-
   def extract_locale_from_accept_language_header
     request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
   end
