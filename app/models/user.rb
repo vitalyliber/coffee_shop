@@ -5,8 +5,7 @@ class User < ApplicationRecord
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :rememberable, :trackable, :validatable
+  devise :omniauthable, omniauth_providers: [:vkontakte]
 
   has_many :day_sales
   has_one :common_tuning
@@ -17,5 +16,9 @@ class User < ApplicationRecord
     CommonTuning.create(current_point: point, user: self)
     product_list = ProductList.create(point: point)
     Product.create(product_list: product_list, title: 'Coffee Cup', price: 140, ml: 400, meter: :ml)
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
   end
 end

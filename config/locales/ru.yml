@@ -46,6 +46,7 @@ ru:
   points: "ТОЧКИ ПРОДАЖ"
   you_have_chosen_point: "Вы выбрали точку продаж: %{point}"
   exit: "ВЫЙТИ"
+  till_is_not_open: "Откройте смену, чтобы войти в кассу"
 
   ok: 'Ок'
   close: 'Отмена'
@@ -71,6 +72,12 @@ ru:
   owner: "ВЛАДЕЛЕЦ"
   edit_mode: "РЕЖИМ РЕДАКТИРОВАНИЯ"
   usual_mode: "ОБЫЧНЫЙ РЕЖИМ"
+
+  authentication: "Авторизация"
+  vk: "ВКонтакте"
+
+  slogan_first_line: "ОТЛИЧНОЕ ПРИЛОЖЕНИЕ"
+  slogan_second_line: "ДЛЯ АВТОМАТИЗАЦИИ ПРОДАЖ ВКУСНОГО КОФЕ"
 
   devise_form:
     sign_in: "Авторизация"

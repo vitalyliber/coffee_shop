@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: "users" }
+
+  devise_scope :user do
+    delete 'sign_out', :to => 'users#destroy', :as => :destroy_user_session
+  end
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  authenticate :user do
-    root 'points#index'
 
-    resources :calendars
+  root 'homes#index'
+
+  authenticate :user do
     resources :points do
       get :till
       resources :orders do

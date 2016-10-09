@@ -11,6 +11,14 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 namespace :deploy do
   before 'check:linked_files', 'puma:config'
+  after :publishing, :upload_yml
+end
+
+desc "Upload secrets.yml file"
+task :upload_yml do
+  on roles(:app) do
+    upload! StringIO.new(File.read("config/secrets.yml")), "#{current_path}/config/secrets.yml"
+  end
 end
 
 # Default branch is :master

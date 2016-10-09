@@ -133,7 +133,9 @@ class PointsController < ApplicationController
 
   def has_day_sale?
     if @point.day_sales.find_by(status: :opened, user: current_user).blank?
-      redirect_to root_path
+      flash[:error] = t :till_is_not_open
+
+      redirect_to points_path(set: 'point')
     end
   end
 end

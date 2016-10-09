@@ -26,6 +26,23 @@ rake db:migrate
 rails s
 ```
 
+_Add settings for vkontakte auth to VK app_
+
+[Dev Panel](https://vk.com/apps?act=manage)
+
+```
+base_url: http://localhost
+redirect_url: http://localhost:3000/users/auth/vkontakte/callback
+```
+
+_Add secret settings for VK to secrets.yml_
+
+```yml
+development:
+  vk_key: XXX
+  vk_id: XXX
+```
+
 _Link to staging server_ :herb:
 
 [Open me, please!](http://coffee-shop.toel.ru)
