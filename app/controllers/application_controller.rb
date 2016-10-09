@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
 
       point_set_to_default
 
-      return redirect_to root_path
+      return redirect_to points_path(set: 'point')
     end
   end
 
@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
 
       point_set_to_default
 
-      return redirect_to root_path
+      return redirect_to points_path(set: 'point')
     end
   end
 

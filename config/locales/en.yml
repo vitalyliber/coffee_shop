@@ -46,6 +46,7 @@ en:
   points: "POINTS OF SALE"
   you_have_chosen_point: "You have chosen point: %{point}"
   exit: "EXIT"
+  till_is_not_open: "Till is not open"
 
   ok: 'Ok'
   close: 'Close'

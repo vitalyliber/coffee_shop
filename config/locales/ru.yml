@@ -46,6 +46,7 @@ ru:
   points: "ТОЧКИ ПРОДАЖ"
   you_have_chosen_point: "Вы выбрали точку продаж: %{point}"
   exit: "ВЫЙТИ"
+  till_is_not_open: "Откройте смену, чтобы войти в кассу"
 
   ok: 'Ок'
   close: 'Отмена'

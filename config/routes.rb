@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   root 'homes#index'
 
   authenticate :user do
-    resources :calendars
     resources :points do
       get :till
       resources :orders do
