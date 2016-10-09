@@ -17,4 +17,8 @@ class User < ApplicationRecord
     product_list = ProductList.create(point: point)
     Product.create(product_list: product_list, title: 'Coffee Cup', price: 140, ml: 400, meter: :ml)
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
