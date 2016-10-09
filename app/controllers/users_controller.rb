@@ -19,6 +19,11 @@ class UsersController < Devise::OmniauthCallbacksController
     redirect_to points_path
   end
 
+  def destroy
+    sign_out
+    redirect_to root_path
+  end
+
   private
 
   def after_omniauth_failure_path_for(_)

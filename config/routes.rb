@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users" }
 
+  devise_scope :user do
+    delete 'sign_out', :to => 'users#destroy', :as => :destroy_user_session
+  end
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   root 'homes#index'
