@@ -1,4 +1,10 @@
 .container
+
   .info-block
-    %div= t :authentication
-  = link_to t(:vk), user_vkontakte_omniauth_authorize_path, class: 'item-middle'
+    %div= t :slogan_first_line
+    %div= t :slogan_second_line
+
+  - if current_user.blank?
+    .info-block-min.f-w-bold
+      = t :authentication
+    = link_to t(:vk), user_vkontakte_omniauth_authorize_path, class: 'item-heavy f-s-1-2'

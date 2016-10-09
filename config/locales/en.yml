@@ -76,6 +76,9 @@ en:
     authentication: 'Authentication'
     vk: "VKontakte"
 
+  slogan_first_line: "BEAUTIFUL APPLICATION"
+  slogan_second_line: "FOR AUTOMATION SALES OF DELICIOUS COFFEE"
+
   devise_form:
     sign_in: "Sign in"
     sign_up_process: "Sign up"

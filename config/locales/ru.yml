@@ -75,6 +75,9 @@ ru:
   authentication: "Авторизация"
   vk: "ВКонтакте"
 
+  slogan_first_line: "ОТЛИЧНОЕ ПРИЛОЖЕНИЕ"
+  slogan_second_line: "ДЛЯ АВТОМАТИЗАЦИИ ПРОДАЖ ВКУСНОГО КОФЕ"
+
   devise_form:
     sign_in: "Авторизация"
     sign_up_process: "Зарегистрироваться"
