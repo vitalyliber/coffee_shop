@@ -44,5 +44,3 @@ development:
 ```
 
 _Link to staging server_ :herb:
-
-[Open me, please!](http://coffee-shop.toel.ru)
