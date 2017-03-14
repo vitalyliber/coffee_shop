@@ -12,7 +12,9 @@ services:
       - db-data:/var/lib/postgresql/db-data
 
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
     env_file: .env
     environment:
       RAILS_ENV: production
