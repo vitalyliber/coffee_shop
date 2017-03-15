@@ -35,6 +35,4 @@
     - if @admin_points.to_a.count < 3
       = link_to t(:new_point), new_point_path, class: 'item-light'
 
-    = link_to t(:activate), activate_points_path, class: 'item-light'
-
     = link_to t(:usual_mode), points_path(set: 'point'), class: 'item-middle'

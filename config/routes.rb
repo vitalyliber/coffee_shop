@@ -9,6 +9,12 @@ Rails.application.routes.draw do
 
   root 'homes#index'
 
+  resources :barmans, only: :index do
+    member do
+      get :activate
+    end
+  end
+
   authenticate :user do
     resources :points do
       get :till
@@ -27,10 +33,6 @@ Rails.application.routes.draw do
         get :set
         get :start_sales, as: :sale
         delete :end_sales, as: :close
-      end
-      collection do
-        get :activate
-        post :activate_process
       end
     end
   end
