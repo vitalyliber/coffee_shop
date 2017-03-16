@@ -73,6 +73,7 @@ ru:
   owner: "ВЛАДЕЛЕЦ"
   edit_mode: "РЕЖИМ РЕДАКТИРОВАНИЯ"
   usual_mode: "ОБЫЧНЫЙ РЕЖИМ"
+  copy_to_clipboard: "Копировать ссылку"
 
   authentication: "Авторизация"
   vk: "ВКонтакте"
