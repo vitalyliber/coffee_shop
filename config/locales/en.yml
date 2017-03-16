@@ -91,3 +91,11 @@ en:
     symbols: "Symbols"
     password: "Password"
     remember: "Remember"
+
+  home:
+    points: Sales points
+    barmans: Barmans
+    statistics: Statistics
+    points_message: Create your own sales points.
+    barmans_message: Add barmans and track sales.
+    statistics_message: View statistics and analyze.

@@ -90,3 +90,11 @@ ru:
     symbols: "Символов"
     password: "Пароль"
     remember: "Запомнить"
+
+  home:
+    points: Точки продаж
+    barmans: Бармены
+    statistics: Статистика
+    points_message: Создавайте точки продаж и управляйте ими.
+    barmans_message: Добавляйте барменов и следите за продажами.
+    statistics_message: Просматривайте статистику и анализируйте.
