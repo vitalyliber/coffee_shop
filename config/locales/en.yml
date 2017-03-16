@@ -75,9 +75,8 @@ en:
   usual_mode: "USUAL MODE"
   copy_to_clipboard: "Copy to clipboard"
 
-  auth:
-    authentication: 'Authentication'
-    vk: "VKontakte"
+  authentication: 'Authentication'
+  vk: "Sign in with VKontakte"
 
   slogan_first_line: "BEAUTIFUL APPLICATION"
   slogan_second_line: "FOR AUTOMATION SALES OF DELICIOUS COFFEE"
@@ -96,6 +95,6 @@ en:
     points: Sales points
     barmans: Barmans
     statistics: Statistics
-    points_message: Create your own sales points.
-    barmans_message: Add barmans and track sales.
-    statistics_message: View statistics and analyze.
+    points_message: Create your own sales points
+    barmans_message: Add barmans and track sales
+    statistics_message: View statistics and analyze
