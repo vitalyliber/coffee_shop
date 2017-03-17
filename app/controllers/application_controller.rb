@@ -26,7 +26,11 @@ class ApplicationController < ActionController::Base
       @current_point = common_tuning.try(:current_point)
 
       if @current_point.blank?
-        @current_point = common_tuning.update(current_point: Point.with_role(:admin, current_user).first)
+        @current_point = common_tuning.update(
+            current_point:
+                Point.with_role(:admin, current_user).first ||
+                Point.with_role(:barman, current_user).first
+        )
       end
 
     end
