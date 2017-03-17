@@ -14,9 +14,7 @@ class BarmansController < ApplicationController
     barman_invite = BarmanInvite.find_or_create_by(point: @current_point)
     @barman_link = "http://#{request.host_with_port}/barmans/#{barman_invite.code}/activate"
 
-    if barman_invite.present?
-      flash.now[:success] = t :key_successfully_generated
-    else
+    unless barman_invite.present?
       flash.now[:error] = t :something_went_wrong
     end
 
