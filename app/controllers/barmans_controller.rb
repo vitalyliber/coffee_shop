@@ -49,7 +49,8 @@ class BarmansController < ApplicationController
 
   def activate
     if current_user.blank?
-      flash[:error] = t :barmen_need_auth
+      flash[:success] = t :barmen_need_auth
+      cookies[:barman_code] = params[:id]
       return redirect_to root_path
     end
 

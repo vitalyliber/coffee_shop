@@ -65,7 +65,7 @@ ru:
   send_key_to_barman: "Отправьте ссылку бармену"
   leave_poin: "Покинуть это место?"
   barman_have_to_activate_key_in_sales_point: "Для активации ссылки бармен должен перейти по ней"
-  barmen_need_auth: "Перед активацией ссылки бармену необходимо авторизоваться"
+  barmen_need_auth: "Пожалуйста, авторизуйтесь, чтобы активировать точку продаж"
   remove_barman: "УДАЛИТЬ"
   barman_key: "Ключ"
   activate: "АКТИВИРОВАТЬ"
