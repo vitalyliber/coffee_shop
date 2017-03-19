@@ -1,6 +1,6 @@
 # Coffee Shop
 
-System for sale in your Coffee Shop :coffee:
+Sale system for Coffee Shops :coffee:
 
 ![coffee_shop recording](https://image.ibb.co/cBww8v/Peek_2017_03_19_12_02.gif)
 
