@@ -18,6 +18,4 @@ docker-compose run app rake db:create db:migrate
 docker-compose up -d app
 ```
 
-__ 
-
 [Link to DEMO](http://coffee-shop.toel.ru) :herb:
