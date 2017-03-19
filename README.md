@@ -1,46 +1,22 @@
 # Coffee Shop
 
-System for sale coffee in your Coffee Shop :coffee:
+System for sale in your Coffee Shop :coffee:
 
-* Ruby version: 2.3.0
+![coffee_shop recording](https://image.ibb.co/cBww8v/Peek_2017_03_19_12_02.gif)
 
 ## How to run Coffee Shop: 
 
-You need mac or linux for starting Coffee Shop.
+You need Docker Compose for starting application. :rocket:
 
 Run this command in your terminal:
 
-_You need to install ruby version manager if it not installed_ :rocket:
+
 ```shell
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-\curl -sSL https://get.rvm.io | bash -s stable
+docker-compose up -d db
+docker-compose build app
+docker-compose run app rake db:create db:migrate
+docker-compose up -d app
 ```
 
-_Install dependencies for Coffee Shop_ :ice_cream:
-```shell
-rvm install 2.3.0
-rvm use 2.3.0@coffee-shop --create
-gem install bundler
-bundle install
-rake db:migrate
-rails s
-```
-
-_Add settings for vkontakte auth to VK app_
-
-[Dev Panel](https://vk.com/apps?act=manage)
-
-```
-base_url: http://localhost
-redirect_url: http://localhost:3000/users/auth/vkontakte/callback
-```
-
-_Add secret settings for VK to secrets.yml_
-
-```yml
-development:
-  vk_key: XXX
-  vk_id: XXX
-```
-
-_Link to staging server_ :herb:
+__ 
+[Link to DEMO](http://coffee-shop.toel.ru) :herb:
