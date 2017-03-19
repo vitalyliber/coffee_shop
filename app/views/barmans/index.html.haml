@@ -1,8 +1,8 @@
 .container
 
-  = link_to t(:add_barman), new_point_barman_path(@current_point), data: {'modal-confirm' => t(:generate_code)}, class: 'item-light'
+  = link_to t(:add_barman), new_point_barman_path(@current_point), class: 'item-light'
 
   %br
 
   - @barmans.each do |barman|
-    =link_to barman.email, point_barman_path(@current_point, barman), class: 'item-middle'
+    =link_to barman.full_name, point_barman_path(@current_point, barman), class: 'item-middle'

@@ -11,7 +11,8 @@ class User < ApplicationRecord
   has_one :common_tuning
 
   def install_point
-    point = Point.create(title: 'First Point')
+    streets = ['Baker Street', 'Cup Street', 'Cake Street']
+    point = Point.create(title: streets.sample)
     self.add_role :admin, point
     CommonTuning.create(current_point: point, user: self)
     product_list = ProductList.create(point: point)

@@ -1,5 +1,5 @@
 .container
   .info-block
-    = @barman.email
+    = @barman.full_name
 
   = link_to t(:remove_barman), point_barman_path(@current_point, id: @barman), class: 'item-heavy', method: :delete, data: {'modal-confirm' => t(:are_you_sure) }

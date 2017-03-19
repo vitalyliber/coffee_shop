@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  before_action :set_locale, :get_or_set_current_point
+  before_action :set_locale, :get_or_set_current_point, :add_barman_to_point
 
   def set_locale
     logger.debug "* Accept-Language: #{request.env['HTTP_ACCEPT_LANGUAGE']}"
@@ -26,7 +26,11 @@ class ApplicationController < ActionController::Base
       @current_point = common_tuning.try(:current_point)
 
       if @current_point.blank?
-        @current_point = common_tuning.update(current_point: Point.with_role(:admin, current_user).first)
+        @current_point = common_tuning.update(
+            current_point:
+                Point.with_role(:admin, current_user).first ||
+                Point.with_role(:barman, current_user).first
+        )
       end
 
     end
@@ -60,6 +64,30 @@ class ApplicationController < ActionController::Base
     common_tuning = CommonTuning.find_by(user: current_user)
 
     @current_point = common_tuning.update(current_point: Point.with_role(:admin, current_user).first)
+  end
+
+  def add_barman_to_point
+    if cookies[:barman_code].present? and current_user.present?
+      barman_invite = BarmanInvite.find_by(code: cookies[:barman_code])
+
+      if barman_invite.present?
+        point = barman_invite.point
+
+        unless current_user.has_role? :admin, point
+          current_user.add_role :barman, point
+
+          flash[:success] = t(:sales_point_successfully_activated, title: point.title)
+
+          barman_invite.delete
+
+          common_tuning = CommonTuning.find_by(user: current_user)
+          common_tuning.update(current_point: point)
+        end
+
+      end
+
+      cookies.delete :barman_code
+    end
   end
 
 end

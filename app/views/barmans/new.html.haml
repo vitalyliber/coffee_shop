@@ -4,4 +4,16 @@
   .info-block-min
     = t :barman_have_to_activate_key_in_sales_point
 
-  = text_field_tag :barman_code, @barman_code, class: 'form-control'
+  = text_field_tag :barman_code, @barman_link, class: 'form-control text-c'
+  %br
+  = link_to t('copy_to_clipboard'), '', id: 'copyBlock', class: 'item-middle'
+
+:javascript
+  var textarea = document.getElementById("barman_code");
+  var copy = document.getElementById("copyBlock");
+  copy.addEventListener('click', function(e) {
+    e.preventDefault();
+    textarea.select();
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+  });

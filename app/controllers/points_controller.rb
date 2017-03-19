@@ -87,42 +87,6 @@ class PointsController < ApplicationController
     @sum_orders = sum_orders orders
   end
 
-  def activate
-  end
-
-  def activate_process
-    if params[:code].blank?
-      flash[:error] = t :type_code_sales_point
-
-      return redirect_to activate_points_path
-    end
-
-    barman_invite = BarmanInvite.find_by(code: params[:code])
-
-    if barman_invite.present?
-      point = barman_invite.point
-
-      if current_user.has_role? :admin, point
-        flash[:error] = t :you_already_are_owner
-
-        return redirect_to activate_points_path
-      end
-
-      current_user.add_role :barman, point
-
-      flash[:success] = t(:sales_point_successfully_activated, title: point.title)
-
-      barman_invite.delete
-
-    else
-      flash[:error] = t :sales_point_not_found_by_code
-
-      return redirect_to activate_points_path
-    end
-
-    redirect_to points_path(set: :true)
-  end
-
   private
 
   def find_point

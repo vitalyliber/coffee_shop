@@ -4,7 +4,18 @@
     %div= t :slogan_first_line
     %div= t :slogan_second_line
 
+  .row.m-t-1
+    .col-sm-4
+      %h3= t 'home.points'
+      %p= t 'home.points_message'
+    .col-sm-4.mt-3
+      %h3= t 'home.barmans'
+      %p= t 'home.barmans_message'
+    .col-sm-4.mt-3
+      %h3= t 'home.statistics'
+      %p= t 'home.statistics_message'
+
   - if current_user.blank?
-    .info-block-min.f-w-bold
-      = t :authentication
+    .info-block-min.f-w-bold.m-t-1
+      -#= t :authentication
     = link_to t(:vk), user_vkontakte_omniauth_authorize_path, class: 'item-heavy f-s-1-2'

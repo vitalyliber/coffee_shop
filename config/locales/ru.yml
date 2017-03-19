@@ -62,9 +62,10 @@ ru:
   sales_point_not_found_by_code: "Коду не соответствует ни одной точки продаж"
   add_barman: "ДОБАВИТЬ БАРМЕНА"
   generate_code: "Сгенерировать ключ?"
-  send_key_to_barman: "Отправьте ключ бармену"
+  send_key_to_barman: "Отправьте ссылку бармену"
   leave_poin: "Покинуть это место?"
-  barman_have_to_activate_key_in_sales_point: "Активировать ключ можно в меню точек продаж"
+  barman_have_to_activate_key_in_sales_point: "Для активации ссылки бармен должен перейти по ней"
+  barmen_need_auth: "Пожалуйста, авторизуйтесь, чтобы активировать точку продаж"
   remove_barman: "УДАЛИТЬ"
   barman_key: "Ключ"
   activate: "АКТИВИРОВАТЬ"
@@ -72,9 +73,10 @@ ru:
   owner: "ВЛАДЕЛЕЦ"
   edit_mode: "РЕЖИМ РЕДАКТИРОВАНИЯ"
   usual_mode: "ОБЫЧНЫЙ РЕЖИМ"
+  copy_to_clipboard: "Копировать ссылку"
 
   authentication: "Авторизация"
-  vk: "ВКонтакте"
+  vk: "Войти через ВКонтакте"
 
   slogan_first_line: "ОТЛИЧНОЕ ПРИЛОЖЕНИЕ"
   slogan_second_line: "ДЛЯ АВТОМАТИЗАЦИИ ПРОДАЖ ВКУСНОГО КОФЕ"
@@ -88,3 +90,11 @@ ru:
     symbols: "Символов"
     password: "Пароль"
     remember: "Запомнить"
+
+  home:
+    points: Точки продаж
+    barmans: Бармены
+    statistics: Статистика
+    points_message: Создавайте точки продаж и управляйте ими
+    barmans_message: Добавляйте барменов и следите за продажами
+    statistics_message: Просматривайте статистику и анализируйте

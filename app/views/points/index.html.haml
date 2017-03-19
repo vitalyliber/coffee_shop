@@ -2,18 +2,20 @@
 
   .info-block#activate-edit-point= t :points
 
-  .info-block-min.f-w-bold
-    = t :owner
+  - if Point.with_role(:admin, current_user).present?
+    .info-block-min.f-w-bold
+      = t :owner
 
   - unless params[:mode] == 'edit'
     - @admin_points.each do |point|
       = link_to point.title, set_point_path(point), data: {'long-press' => edit_point_path(point)}, class: 'item-middle'
+      %br
   -else
     - @admin_points.each do |point|
       = link_to point.title, edit_point_path(point), class: 'item-heavy'
+      %br
 
   - if @barman_points.present?
-    %br
     .info-block-min.f-w-bold
       = t :barman
 
@@ -34,7 +36,5 @@
 
     - if @admin_points.to_a.count < 3
       = link_to t(:new_point), new_point_path, class: 'item-light'
-
-    = link_to t(:activate), activate_points_path, class: 'item-light'
 
     = link_to t(:usual_mode), points_path(set: 'point'), class: 'item-middle'
