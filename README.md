@@ -6,7 +6,7 @@ Sale system for Coffee Shops :coffee:
 
 ## How to run Coffee Shop: 
 
-You need a Docker Compose for starting application. :rocket:
+You need a Docker Compose to start the application. :rocket:
 
 Run commands:
 
