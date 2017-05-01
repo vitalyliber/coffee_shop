@@ -1,15 +1,14 @@
 version: "2"
 
 volumes:
-  db-data:
-    external: false
+  db: {}
 
 services:
   db:
     image: postgres
     env_file: .env
     volumes:
-      - db-data:/var/lib/postgresql/db-data
+      - db:/var/lib/postgresql/data
     restart: unless-stopped
 
   app:
