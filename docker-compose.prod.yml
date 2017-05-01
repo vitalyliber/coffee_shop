@@ -10,6 +10,7 @@ services:
     env_file: .env
     volumes:
       - db-data:/var/lib/postgresql/db-data
+    restart: unless-stopped
 
   app:
     build:
@@ -22,3 +23,4 @@ services:
       - "3001:3001"
     depends_on:
       - db
+    restart: unless-stopped
